@@ -24,7 +24,7 @@
 		transform: none;
 		max-height: 280px;
 	}
-	#Zone-Gauche{
+	#Left-Section{
 		max-height: 340px;
 		.image-result{
 			height: 280px;
@@ -43,7 +43,7 @@
 	.vignettes-section{
 		grid-template-columns: 1fr 1fr 1fr;
 	}
-	#Zone-Droite {
+	#Right-Section {
 		padding:0px 20px;
 	   }
 	   #Categories button{
