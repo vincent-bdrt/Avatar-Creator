@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+/* Pauls awesome mixin */
+@media screen and (max-width: 1120px) {
+  h1 {
+    font-size: 45px;
+  }
+  a.start {
+    font-size: 80px;
+  }
+  a.start:before {
+    font-size: 80px;
+  }
+  .nav-pill {
+    padding: 0 !important;
+  }
+  .grid-2 {
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+  #sidebar {
+    top: 15px;
+    transform: none;
+    max-height: 280px;
+  }
+  #Left-Section {
+    max-height: 340px;
+  }
+  #Left-Section .image-result {
+    height: 280px;
+    margin-top: 15px;
+  }
+  #Left-Section .image-result .result {
+    width: 280px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 35px;
+  }
+  .vignettes-section {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  #Right-Section {
+    padding: 0px 20px;
+  }
+  #Categories button {
+    padding: 1rem;
+    margin: 0;
+  }
+}

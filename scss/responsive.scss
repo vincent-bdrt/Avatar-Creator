@@ -1,0 +1,57 @@
+@import 'variables.scss';
+
+@media screen and (max-width: 1120px) {
+	h1 {
+		font-size: 45px;
+	}
+	a.start{
+		font-size: 80px;
+		&:before{
+			font-size: 80px;
+		}
+	}
+
+	.nav-pill {
+		padding: 0 !important;
+	}
+
+	.grid-2{
+		width: 100%;
+		grid-template-columns: 1fr;
+	}
+	#sidebar{
+		top: 15px;
+		transform: none;
+		max-height: 280px;
+	}
+	#Zone-Gauche{
+		max-height: 340px;
+		.image-result{
+			height: 280px;
+			margin-top: 15px;
+			.result{
+				width: 280px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	h1{
+		font-size: 35px;
+	}
+	.vignettes-section{
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+	#Zone-Droite {
+		padding:0px 20px;
+	   }
+	   #Categories button{
+		padding: 1rem;
+		margin: 0;
+	   }
+}
+
+@media screen and (max-width:600px) {
+
+}
