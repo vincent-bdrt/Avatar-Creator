@@ -250,6 +250,9 @@ function change(section, isBack, isCostumes, hasColorPart, hasGender, isHair) {
           resultBack.setAttribute('src', resultSrcBack);
           localStorage.setItem('Storage_' + section + '_Back', resultSrcBack);
         }
+        if (isCostumes) {
+          localStorage.removeItem('Storage_' + section);
+        }
       });
     }
   }

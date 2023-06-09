@@ -41,7 +41,7 @@ function simpleSection($sectionName,$hasZoomFace,$hasColorPart,$id_color,$hasRes
     
    
     echo '<section id="'.$sectionName.'">';
-    if ($hasDisableMessage){
+    if ($hasDisableMessage && $isHair) {
         echo '<div class="disable-message">';
         if ($isHair){
             echo '<p>Vous portez un chapeau.</p>';
@@ -57,7 +57,7 @@ function simpleSection($sectionName,$hasZoomFace,$hasColorPart,$id_color,$hasRes
     if ($hasZoomFace) {echo ' hasZoomFace';}
     if ($hasColorPart) {echo ' hasColorPart';}
     if ($isCostume) {echo ' isCostume';}
-    if ($hasDisableMessage) {echo ' hasDisableMessage';}
+    if ($hasDisableMessage && !isHair) {echo ' hasDisableMessage';}
     if ($hasGender) {echo ' hasGender';}
     if (empty($customVignette)) {echo ' vignette-default';} else {echo ' vignette-custom';}
 
