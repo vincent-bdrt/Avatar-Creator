@@ -20,7 +20,6 @@ document.addEventListener("click", function (event) {
     menuPlus.style.display = "none";
 });
 
-
 downloadBtn.addEventListener('click', function () {
     download.click();
 });

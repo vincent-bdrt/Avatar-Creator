@@ -31,7 +31,6 @@ expirationDate.setDate(expirationDate.getDate() + 30);
 
 //Document is ready
 
-document.getElementById("Skin").classList.add('active');
 for (const new_item of news) {
   document.getElementById("Nav_" + new_item).classList.add('new');
   let spanIcon = document.createElement("span");
@@ -43,7 +42,7 @@ let start = document.querySelector('.start');
 start.addEventListener('click', function () {
   document.querySelector('section.launcher').style.top = '-100%';
   document.querySelector('body').classList.add('game-started');
-  document.getElementById('Skin').classList.add('active');
+  document.getElementById('Nav_Skin').click();
   setTimeout(function () {
     document.querySelector('section.launcher').remove();
     document.querySelector('.modal-morphology').style.display = 'block';
