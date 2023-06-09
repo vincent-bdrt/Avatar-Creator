@@ -7,7 +7,7 @@ let download = document.getElementById('Download');
 let reset = document.getElementById('Reset');
 let random = document.getElementById('Random');
 let morphology = document.getElementById('Morphology-btn');
-/*
+
 document.addEventListener("contextmenu", function (event) {
     event.preventDefault();
     menuPlus.style.display = "block";
@@ -19,7 +19,7 @@ document.addEventListener("click", function (event) {
     if (event.target.closest(".menu-plus")) return;
     menuPlus.style.display = "none";
 });
-*/
+
 
 downloadBtn.addEventListener('click', function () {
     download.click();
@@ -78,3 +78,11 @@ buttons.forEach(button => {
         }
     });
 });
+
+//when wheel is scrolled on #Categories section , scroll to right but not to bottom
+let categories = document.getElementById('Categories');
+categories.addEventListener('wheel', function (event) {
+    event.preventDefault();
+    categories.scrollLeft += event.deltaY;
+}
+);

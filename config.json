@@ -1,5 +1,4 @@
-[
-    {
+[{
         "sectionName": "Skin",
         "hasZoomFace": false,
         "hasColorPart": false,
@@ -7,8 +6,10 @@
         "hasReset": false,
         "hasDisableMessage": false,
         "hasGender": true,
+        "isHair": false,
+        "hairSize": [],
         "isCostume": false,
-        "hasBack":false,
+        "hasBack": false,
         "customVignette": []
     },
     {
@@ -19,9 +20,11 @@
         "hasReset": true,
         "hasDisableMessage": false,
         "hasGender": false,
+        "isHair": false,
+        "hairSize": [],
         "isCostume": false,
-        "hasBack":false,
-        "customVignette": ["Base","Mustaches","Nose"]
+        "hasBack": false,
+        "customVignette": ["Base", "Mustaches", "Nose"]
     },
     {
         "sectionName": "Beards",
@@ -31,8 +34,10 @@
         "hasReset": true,
         "hasDisableMessage": false,
         "hasGender": false,
+        "isHair": false,
+        "hairSize": [],
         "isCostume": false,
-        "hasBack":false,
+        "hasBack": false,
         "customVignette": []
     },
     {
@@ -43,9 +48,11 @@
         "hasReset": true,
         "hasDisableMessage": false,
         "hasGender": false,
+        "isHair": false,
+        "hairSize": [],
         "isCostume": false,
-        "hasBack":false,
-        "customVignette": ["Base","Makeup","Eyes"]
+        "hasBack": false,
+        "customVignette": ["Base", "Makeup", "Eyes"]
     },
     {
         "sectionName": "Spot",
@@ -55,9 +62,25 @@
         "hasReset": true,
         "hasDisableMessage": false,
         "hasGender": false,
+        "isHair": false,
+        "hairSize": [],
         "isCostume": false,
-        "hasBack":false,
-        "customVignette": ["Base","Spot","Eyes"]
+        "hasBack": false,
+        "customVignette": ["Base", "Spot", "Eyes"]
+    },
+    {
+        "sectionName": "Hair",
+        "hasZoomFace": false,
+        "hasColorPart": true,
+        "id_color": 2,
+        "hasReset": false,
+        "hasDisableMessage": false,
+        "hasGender": false,
+        "isHair": true,
+        "hairSize": ["shaved", "very_short", "short", "medium", "long"],
+        "isCostume": false,
+        "hasBack": true,
+        "customVignette": ["Hair_Back", "Base", "Hair"]
     },
     {
         "sectionName": "Earring",
@@ -67,8 +90,10 @@
         "hasReset": true,
         "hasDisableMessage": false,
         "hasGender": false,
+        "isHair": false,
+        "hairSize": [],
         "isCostume": false,
-        "hasBack":false,
+        "hasBack": false,
         "customVignette": []
     },
     {
@@ -79,9 +104,11 @@
         "hasReset": true,
         "hasDisableMessage": false,
         "hasGender": false,
+        "isHair": false,
+        "hairSize": [],
         "isCostume": false,
-        "hasBack":true,
-        "customVignette": ["Base","Eyes","Glasses_Back","Nose","Glasses"]
+        "hasBack": true,
+        "customVignette": ["Base", "Eyes", "Glasses_Back", "Nose", "Glasses"]
     },
     {
         "sectionName": "Eyebrow",
@@ -91,9 +118,11 @@
         "hasReset": false,
         "hasDisableMessage": false,
         "hasGender": false,
+        "isHair": false,
+        "hairSize": [],
         "isCostume": false,
-        "hasBack":false,
-        "customVignette": ["Base","Eyes","Eyebrow"]
+        "hasBack": false,
+        "customVignette": ["Base", "Eyes", "Eyebrow"]
     },
     {
         "sectionName": "Eyes",
@@ -103,8 +132,10 @@
         "hasReset": false,
         "hasDisableMessage": false,
         "hasGender": false,
+        "isHair": false,
+        "hairSize": [],
         "isCostume": false,
-        "hasBack":false,
+        "hasBack": false,
         "customVignette": []
     },
     {
@@ -115,8 +146,10 @@
         "hasReset": false,
         "hasDisableMessage": false,
         "hasGender": false,
+        "isHair": false,
+        "hairSize": [],
         "isCostume": false,
-        "hasBack":false,
+        "hasBack": false,
         "customVignette": []
     },
     {
@@ -127,22 +160,26 @@
         "hasReset": false,
         "hasDisableMessage": false,
         "hasGender": false,
+        "isHair": false,
+        "hairSize": [],
         "isCostume": false,
-        "hasBack":false,
+        "hasBack": false,
         "customVignette": []
     },
     {
-      "sectionName": "Necklace",
-      "hasZoomFace": false,
-      "hasColorPart": true,
-      "id_color": 1,
-      "hasReset": true,
-      "hasDisableMessage": false,
-      "hasGender": false,
-      "isCostume": false,
-      "hasBack":false,
-      "customVignette": []
-  },
+        "sectionName": "Necklace",
+        "hasZoomFace": false,
+        "hasColorPart": true,
+        "id_color": 1,
+        "hasReset": true,
+        "hasDisableMessage": false,
+        "hasGender": false,
+        "isHair": false,
+        "hairSize": [],
+        "isCostume": false,
+        "hasBack": false,
+        "customVignette": []
+    },
     {
         "sectionName": "Top",
         "hasZoomFace": false,
@@ -151,8 +188,10 @@
         "hasReset": true,
         "hasDisableMessage": true,
         "hasGender": true,
+        "isHair": false,
+        "hairSize": [],
         "isCostume": false,
-        "hasBack":false,
+        "hasBack": false,
         "customVignette": []
     },
     {
@@ -163,8 +202,10 @@
         "hasReset": true,
         "hasDisableMessage": true,
         "hasGender": true,
+        "isHair": false,
+        "hairSize": [],
         "isCostume": false,
-        "hasBack":false,
+        "hasBack": false,
         "customVignette": []
     },
     {
@@ -175,8 +216,10 @@
         "hasReset": true,
         "hasDisableMessage": false,
         "hasGender": true,
+        "isHair": false,
+        "hairSize": [],
         "isCostume": true,
-        "hasBack":false,
+        "hasBack": false,
         "customVignette": []
     },
     {
@@ -187,8 +230,10 @@
         "hasReset": true,
         "hasDisableMessage": false,
         "hasGender": true,
+        "isHair": false,
+        "hairSize": [],
         "isCostume": true,
-        "hasBack":false,
+        "hasBack": false,
         "customVignette": []
     },
     {
@@ -199,8 +244,10 @@
         "hasReset": true,
         "hasDisableMessage": false,
         "hasGender": true,
+        "isHair": false,
+        "hairSize": [],
         "isCostume": true,
-        "hasBack":false,
+        "hasBack": false,
         "customVignette": []
     },
     {
@@ -211,8 +258,10 @@
         "hasReset": true,
         "hasDisableMessage": false,
         "hasGender": true,
+        "isHair": false,
+        "hairSize": [],
         "isCostume": true,
-        "hasBack":false,
+        "hasBack": false,
         "customVignette": []
     },
     {
@@ -223,8 +272,10 @@
         "hasReset": true,
         "hasDisableMessage": false,
         "hasGender": true,
+        "isHair": false,
+        "hairSize": [],
         "isCostume": true,
-        "hasBack":false,
+        "hasBack": false,
         "customVignette": []
     },
     {
@@ -235,8 +286,10 @@
         "hasReset": true,
         "hasDisableMessage": false,
         "hasGender": true,
+        "isHair": false,
+        "hairSize": [],
         "isCostume": true,
-        "hasBack":false,
+        "hasBack": false,
         "customVignette": []
     },
     {
@@ -247,8 +300,10 @@
         "hasReset": true,
         "hasDisableMessage": false,
         "hasGender": true,
+        "isHair": false,
+        "hairSize": [],
         "isCostume": true,
-        "hasBack":false,
+        "hasBack": false,
         "customVignette": []
     }
 ]

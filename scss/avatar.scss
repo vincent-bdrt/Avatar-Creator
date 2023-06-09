@@ -6,7 +6,7 @@ body {
 	margin: 0;
 	padding: 0;
 	font-size: 16px;
-	font-family: 'Patrick Hand', cursive;
+	font-family: 'Comic Neue', cursive;
 }
 
 //custom scrollbar
@@ -82,7 +82,7 @@ a {
 a.start {
 	position: relative;
 	display: inline-block;
-    font-family: 'Patrick Hand', cursive;
+    font-family: 'Comic Neue', cursive;
 	font-weight: 900;
 	font-size: 180px;
 	line-height: 1;
@@ -104,7 +104,7 @@ a.start {
 		position: absolute;
 		top: 0;
 		left: 0;
-		font-family: 'Patrick Hand', cursive;
+		font-family: 'Comic Neue', cursive;
 		font-weight: 900;
 		font-size: 180px;
 		line-height: 1;
@@ -526,8 +526,12 @@ body.game-started .menu-plus {
 	transition: all 0.3s ease;
 	display: block;
 	margin: 15px auto;
-	width: max-content;
-
+	scroll-behavior: smooth;
+	nav{
+		display: block;
+		width: max-content;
+		margin: 0 auto;
+	}
 	ul {
 		display: flex;
 		justify-content: space-between;
@@ -719,6 +723,7 @@ body.game-started .menu-plus {
 		width: 100%;
 		object-fit: cover;
 		height: auto;
+		image-rendering: optimizequality;
 	}
 
 	#Result_final {
@@ -755,8 +760,6 @@ body.game-started .menu-plus {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
 	grid-gap: 16px;
-
-
 	&.hasZoomFace .vignette {
 
 		img {
@@ -825,6 +828,7 @@ body.game-started .menu-plus {
 		width: 100%;
 		max-width: 100%;
 		height: auto;
+		image-rendering: optimizequality;
 	}
 }
 

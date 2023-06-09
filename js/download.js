@@ -24,45 +24,52 @@ for (let i = 0; i < order_result.length; i++) {
     result_div.appendChild(img);
     document.getElementById('Result_' + order_result[i]).style.zIndex = i + 1;
 }
-
+var initialLoad = false;
 function defaultResult() {
     for (const element of order_result) {
-        switch (element) {
-            case "Skin":
-                document.getElementById('Result_Skin').setAttribute('src', 'avatar-creator/images/Skin/Men/1.png');
-                break;
-            case "Eyes":
-                document.getElementById('Result_Eyes').setAttribute('src', 'avatar-creator/images/Eyes/1.png');
-                break;
-            case "Mouth":
-                document.getElementById('Result_Mouth').setAttribute('src', 'avatar-creator/images/Mouth/1.png');
-                break;
-            case "Eyebrow":
-                document.getElementById('Result_Eyebrow').setAttribute('src', 'avatar-creator/images/Eyebrow/1/1.png');
-                break;
-            case "Nose":
-                document.getElementById('Result_Nose').setAttribute('src', 'avatar-creator/images/Nose/1.png');
-                break;
-            case "Makeup":
-                document.getElementById('Result_Makeup').setAttribute('src', 'avatar-creator/images/Makeup/3.png');
-                break;
-            case "Hair":
-                document.getElementById('Result_Hair').setAttribute('data-color', '1');
-                document.getElementById('Result_Hair').setAttribute('data-size', 'shaved');
-                document.getElementById('Result_Hair').setAttribute('data-src-store', 'avatar-creator/UI/reset.png');
-                break;
-            case "Hair_Back":
-                document.getElementById('Result_Hair_Back').setAttribute('data-color', '1');
-                document.getElementById('Result_Hair_Back').setAttribute('data-size', 'shaved');
-                document.getElementById('Result_Hair_Back').setAttribute('data-src-store', 'avatar-creator/UI/reset.png');
-                break;
+         //if element is in cookies
+        if (localStorage.getItem("Storage_" + element) && initialLoad == false) {
+            document.getElementById('Result_'+ element).setAttribute('src', localStorage.getItem("Storage_" + element));
+        } else {
+            switch (element) {
+                case "Skin":
+                    document.getElementById('Result_Skin').setAttribute('src', 'avatar-creator/images/Skin/Men/1.png');
+                    break;
+                case "Eyes":
+                    document.getElementById('Result_Eyes').setAttribute('src', 'avatar-creator/images/Eyes/1.png');
+                    break;
+                case "Mouth":
+                    document.getElementById('Result_Mouth').setAttribute('src', 'avatar-creator/images/Mouth/1.png');
+                    break;
+                case "Eyebrow":
+                    document.getElementById('Result_Eyebrow').setAttribute('src', 'avatar-creator/images/Eyebrow/1/1.png');
+                    break;
+                case "Nose":
+                    document.getElementById('Result_Nose').setAttribute('src', 'avatar-creator/images/Nose/1.png');
+                    break;
+                case "Makeup":
+                    document.getElementById('Result_Makeup').setAttribute('src', 'avatar-creator/images/Makeup/3.png');
+                    break;
+                case "Hair":
+                    document.getElementById('Result_Hair').setAttribute('data-color', '1');
+                    document.getElementById('Result_Hair').setAttribute('data-size', 'shaved');
+                    document.getElementById('Result_Hair').setAttribute('data-src-store', 'avatar-creator/UI/reset.png');
+                    break;
+                case "Hair_Back":
+                    document.getElementById('Result_Hair_Back').setAttribute('data-color', '1');
+                    document.getElementById('Result_Hair_Back').setAttribute('data-size', 'shaved');
+                    document.getElementById('Result_Hair_Back').setAttribute('data-src-store', 'avatar-creator/UI/reset.png');
+                    break;
 
-            default:
-                document.getElementById('Result_' + element).setAttribute('src', 'avatar-creator/UI/reset.png');
-                break;
+                default:
+                    document.getElementById('Result_' + element).setAttribute('src', 'avatar-creator/UI/reset.png');
+                    break;
+            }
         }
     }
+    initialLoad = true;
 }
+ 
 defaultResult();
 
 document.getElementById('Download').addEventListener('click', function () {

@@ -18,6 +18,7 @@ include 'functions.php';
 
         gtag('config', 'G-HJS2YNWC42');
     </script>
+    
     <title>PinkNose - Avatar gratuit 100% personnalisable</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -158,13 +159,12 @@ include 'functions.php';
                     </div>
                     <?php 
                     include 'avatar-creator/section/Morpho.php';
-                    include 'avatar-creator/section/Hair.php';
                     include 'avatar-creator/section/Hat.php';
                     include 'avatar-creator/section/Background.php';
                     $json_data = file_get_contents('config.json');
                     $data = json_decode($json_data, true);
                     foreach ($data as $section) {
-                        simpleSection($section['sectionName'], $section['hasZoomFace'], $section['hasColorPart'], $section['id_color'], $section['hasReset'], $section['hasDisableMessage'],$section['hasGender'],$section['isCostume'],$section['hasBack'],$section['customVignette']);
+                        simpleSection($section['sectionName'], $section['hasZoomFace'], $section['hasColorPart'], $section['id_color'], $section['hasReset'], $section['hasDisableMessage'],$section['hasGender'],$section['isHair'],$section['hairSize'],$section['isCostume'],$section['hasBack'],$section['customVignette']);
                     }
                 ?>
                 </div>

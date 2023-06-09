@@ -1,6 +1,8 @@
 
-    document.getElementById("Reset").addEventListener("click", function () {
+document.getElementById("Reset").addEventListener("click", function () {
+        localStorage.clear();
         defaultResult();
+
     });
     /*Reset function for specific item*/
     function reset_button_Section(section) {
@@ -33,7 +35,12 @@
         let vignettes = document.querySelectorAll('#Vignettes-' + section + ' .vignette');
         let colors = document.querySelectorAll('#Vignettes-' + section + '-color .color-item');
 
+        
        document.querySelector('#'+section+' .reset').addEventListener('click', function () {
+        
+        let colorsSection = document.getElementById('Vignettes-' + section + '-color');
+        colorsSection.style.display = 'none';
+
             /*Reset saved item*/
             document.getElementById('Hair').classList.remove('item-save');
             document.getElementById('Result_Hair').setAttribute('src', document.getElementById('Result_Hair').getAttribute('data-src-store'));
