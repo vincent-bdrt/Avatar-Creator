@@ -208,13 +208,10 @@ function change(section, isBack, isCostumes, hasColorPart, hasGender, isHair) {
         this.classList.add('active');
         /*Change vignette color**/
         for (let i = 1; i < vignettes.length + 1; i++) {
-          let vignette_item = document.querySelector('#Vignettes-' + section + ' .vignette[data-element="' + i + '"] img[data-vignette-item="' + section + '"]');
+          let vignetteItem = document.querySelector('#Vignettes-' + section + ' .vignette[data-element="' + i + '"] img[data-vignette-item="' + section + '"]');
           if (hasGender) {
-            vignette_item.setAttribute("src", "avatar-creator/images/" + section + "/" + currentGender + '/' + i + "/" + dataColor + ".png");
-          } else {
-            vignette_item.setAttribute("src", "avatar-creator/images/" + section + "/" + i + "/" + dataColor + ".png");
-          }
-          if (isBack) {
+            vignetteItem.setAttribute("src", "avatar-creator/images/" + section + "/" + currentGender + '/' + i + "/" + dataColor + ".png");
+          } else if (isBack) {
             if (isHair) {
 
                 let vignetteElement = document.querySelector('#Vignettes-Hair .vignette:nth-child(' + i + ')').getAttribute("data-element");
@@ -225,11 +222,13 @@ function change(section, isBack, isCostumes, hasColorPart, hasGender, isHair) {
               document.querySelector('#Vignettes-' + section + ' .vignette[data-element="' + i + '"]  img[data-vignette-item="' + section + '"]').setAttribute("src", "avatar-creator/images/" + section + "/Front/" + i + "/" + dataColor + ".png");
               document.querySelector('#Vignettes-' + section + ' .vignette[data-element="' + i + '"]  img[data-vignette-item="' + section + '_Back"]').setAttribute("src", "avatar-creator/images/" + section + "/Back/" + i + "/" + dataColor + ".png");
             }
+          }else {
+            vignetteItem.setAttribute("src", "avatar-creator/images/" + section + "/" + i + "/" + dataColor + ".png");
           }
         }
         //Create Result URL;
         if (isHair) {
-          let dataSize = document.querySelector('#Vignettes-' + section + '-size .vignette.active').getAttribute("data-size");
+          let dataSize =document.querySelector('#Vignettes-Hair .vignette.active ').getAttribute("data-size");
           resultSrc = 'avatar-creator/images/Hair/Front/' + dataSize + '/' + dataElement + '/' + dataColor + '.png';
           resultSrcBack = 'avatar-creator/images/Hair/Back/' + dataSize + '/' + dataElement + '/' + dataColor + '.png';
           result.setAttribute('data-color', dataColor);

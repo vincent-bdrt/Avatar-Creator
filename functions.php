@@ -57,7 +57,7 @@ function simpleSection($sectionName,$hasZoomFace,$hasColorPart,$id_color,$hasRes
     if ($hasZoomFace) {echo ' hasZoomFace';}
     if ($hasColorPart) {echo ' hasColorPart';}
     if ($isCostume) {echo ' isCostume';}
-    if ($hasDisableMessage && !isHair) {echo ' hasDisableMessage';}
+    if ($hasDisableMessage && !$isHair) {echo ' hasDisableMessage';}
     if ($hasGender) {echo ' hasGender';}
     if (empty($customVignette)) {echo ' vignette-default';} else {echo ' vignette-custom';}
 
