@@ -45,10 +45,12 @@ function simpleSection($sectionName,$hasZoomFace,$hasColorPart,$id_color,$hasRes
         echo '<div class="disable-message">';
         if ($isHair){
             echo '<p>Vous portez un chapeau.</p>';
+            echo ' <div class="remove-hat-button"><i class="fa fa-trash reset color-item"></i>Supprimer le chapeau </div></div>';
         }else{
             echo '<p>Vous portez un costume.</p>';
+            echo ' <div class="remove-costume-button"><i class="fa fa-trash reset color-item"></i>Supprimer le costume </div></div>';
         }
-        echo ' <div class="remove-costume-button"><i class="fa fa-trash reset color-item"></i>Supprimer le costume </div></div>';
+        
     }
     //Vignettes
     echo '<div class="vignettes-section';

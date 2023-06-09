@@ -74,7 +74,7 @@
         "hasColorPart": true,
         "id_color": 2,
         "hasReset": false,
-        "hasDisableMessage": false,
+        "hasDisableMessage": true,
         "hasGender": false,
         "isHair": true,
         "hairSize": ["shaved", "very_short", "short", "medium", "long"],
