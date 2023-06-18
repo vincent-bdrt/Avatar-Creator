@@ -7,7 +7,7 @@ let download = document.getElementById('Download');
 let reset = document.getElementById('Reset');
 let random = document.getElementById('Random');
 let morphology = document.getElementById('Morphology-btn');
-/*
+
 document.addEventListener("contextmenu", function (event) {
     event.preventDefault();
     menuPlus.style.display = "block";
@@ -32,7 +32,7 @@ randomBtn.addEventListener('click', function () {
 morphologyBtn.addEventListener('click', function () {
     morphology.click();
 });
-*/
+
 
 //Navigation
 // Sélectionner les éléments de navigation
