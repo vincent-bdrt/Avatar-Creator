@@ -53,12 +53,14 @@ function defaultResult() {
                 case "Hair":
                     document.getElementById('Result_Hair').setAttribute('data-color', '1');
                     document.getElementById('Result_Hair').setAttribute('data-size', 'shaved');
-                    document.getElementById('Result_Hair').setAttribute('data-src-store', 'avatar-creator/UI/reset.png');
+                    document.getElementById('Result_Hair').setAttribute('data-src-store', 'avatar-creator/images/Hair/Front/shaved/1/1.png');
+                    document.getElementById('Result_Hair').setAttribute('src', 'avatar-creator/images/Hair/Front/shaved/1/1.png');
                     break;
                 case "Hair_Back":
                     document.getElementById('Result_Hair_Back').setAttribute('data-color', '1');
                     document.getElementById('Result_Hair_Back').setAttribute('data-size', 'shaved');
-                    document.getElementById('Result_Hair_Back').setAttribute('data-src-store', 'avatar-creator/UI/reset.png');
+                    document.getElementById('Result_Hair_Back').setAttribute('data-src-store', 'avatar-creator/images/Hair/Front/shaved/1/1.png');
+                    document.getElementById('Result_Hair_Back').setAttribute('src', 'avatar-creator/images/Hair/Front/shaved/1/1.png');
                     break;
 
                 default:

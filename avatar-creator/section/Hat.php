@@ -15,10 +15,15 @@
                     ?>
              </div>
             <?php 
-            echo '<div class="vignettes-color" id="Vignettes-Hat-color">
+            echo '<div class="vignettes-section-color" id="Vignettes-Hat-color">
             <span><i class="fas fa-eye-dropper"></i></span>';
-            for ($i = 0; $i < $lengthRainbowColor; $i++) {
-                echo '<div class="color-item" data-color="'. ($i + 1) .'" style="background-color:'. $rainbowColor[$i] .'"></div>';
+            $sectionColorLengthHat = 0;
+            if (isset($colors[0]["colorValues"])) {
+                $sectionColorLengthHat = count($colors[0]["colorValues"]);
+            }
+
+            for ($i = 0; $i < $sectionColorLengthHat ; $i++) {
+                echo '<div class="vignette-color" data-color="'. ($i + 1) .'" style="background-color:'. $colors[0]["colorValues"][$i].'"></div>';
             }
             echo '</div>';?>
  </section>

@@ -19,7 +19,7 @@ document.addEventListener("click", function (event) {
     if (event.target.closest(".menu-plus")) return;
     menuPlus.style.display = "none";
 });
-*/
+
 downloadBtn.addEventListener('click', function () {
     download.click();
 });
@@ -32,10 +32,10 @@ randomBtn.addEventListener('click', function () {
 morphologyBtn.addEventListener('click', function () {
     morphology.click();
 });
+*/
 
-
-/*Navigation - Sections*/
-/*Navigation*/
+//Navigation
+// Sélectionner les éléments de navigation
 let buttons = document.querySelectorAll('#Categories button');
 buttons.forEach(button => {
     button.addEventListener('click', function () {
@@ -53,13 +53,13 @@ buttons.forEach(button => {
             document.querySelectorAll('#Right-Section section').forEach(element => {
                 element.style.display = 'none';
             });
-            document.getElementById(subnav_target).style.display = 'block';
+            document.getElementById(subnav_target).style.display = 'flex';
         } else {
             let target = this.getAttribute('data-target');
             document.querySelectorAll('#Right-Section section').forEach(element => {
                 element.style.display = 'none';
             });
-            document.getElementById(target).style.display = 'block';
+            document.getElementById(target).style.display = 'flex';
         }
         let siblings = this.parentNode.parentNode.children;
         for (const element of siblings) {

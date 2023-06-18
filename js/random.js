@@ -19,7 +19,7 @@ function randomIntFromInterval(min, max) {
       const countItem = document.querySelectorAll(`#Vignettes-${item} .vignette`).length;
       const randomItem = randomIntFromInterval(1, countItem);
       const randomColorItem = randomIntFromInterval(1, 40);
-      document.querySelector(`#Vignettes-${item}-color .color-item[data-color="${randomColorItem}"]`).click();
+      document.querySelector(`#Vignettes-${item}-color .vignette-color[data-color="${randomColorItem}"]`).click();
       document.querySelector(`#Vignettes-${item} .vignette[data-element="${randomItem}"]`).click();
     }
   }
@@ -35,18 +35,18 @@ function randomIntFromInterval(min, max) {
       const chanceMustaches = randomIntFromInterval(1, 5); 
       const chanceBeards = randomIntFromInterval(1, 5); 
       if (chanceMustaches === 1) {
-        document.querySelector(`#Vignettes-Mustaches-color .color-item[data-color="${randomColorItem}"]`).click();
+        document.querySelector(`#Vignettes-Mustaches-color .vignette-color[data-color="${randomColorItem}"]`).click();
         document.querySelector(`#Vignettes-Mustaches .vignette[data-element="${randomMustaches}"]`).click();
       }
       if (chanceBeards === 1) {
-        document.querySelector(`#Vignettes-Beards-color .color-item[data-color="${randomColorItem}"]`).click();
+        document.querySelector(`#Vignettes-Beards-color .vignette-color[data-color="${randomColorItem}"]`).click();
         document.querySelector(`#Vignettes-Beards .vignette[data-element="${randomBeards}"]`).click();
       }
     }
     
-    document.querySelector(`#Vignettes-Hair-color .color-item[data-color="${randomColorItem}"]`).click();
+    document.querySelector(`#Vignettes-Hair-color .vignette-color[data-color="${randomColorItem}"]`).click();
     document.querySelectorAll('#Vignettes-Hair .vignette')[randomHair - 1].click();
-    document.querySelector(`#Vignettes-Eyebrow-color .color-item[data-color="${randomColorItem}"]`).click();
+    document.querySelector(`#Vignettes-Eyebrow-color .vignette-color[data-color="${randomColorItem}"]`).click();
     document.querySelector(`#Vignettes-Eyebrow .vignette[data-element="${randomEyebrow}"]`).click();
   }
 

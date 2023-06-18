@@ -1,6 +1,6 @@
 <?php 
 ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
-include 'functions.php';
+require_once 'functions.php';
 ?>
 <!doctype html>
 <html lang="fr">
@@ -119,39 +119,7 @@ include 'functions.php';
                     <div id="Categories">
                         <nav>
                             <ul>
-                                <?php foreach ($sectionName as $section): ?>
-                                <?php if (is_array($section)): ?>
-                                <li class="with_subnav">
-                                    <button type="button" id="Nav_<?php echo $section[0]; ?>"
-                                        data-target="<?php echo $section[0]; ?>">
-                                        <img loading="lazy"
-                                            src="avatar-creator/UI/Icon/icon_<?php echo $section[0]; ?>.svg"
-                                            alt="Icon <?php echo $section[0]; ?>">
-                                    </button>
-                                    <ul>
-                                        <?php for ($i = 1; $i < count($section); $i++): ?>
-                                        <li>
-                                            <button type="button" id="Nav_<?php echo $section[$i]; ?>"
-                                                data-target="<?php echo $section[$i]; ?>">
-                                                <img loading="lazy"
-                                            src="avatar-creator/UI/Icon/icon_<?php echo $section[$i];  ?>.svg"
-                                            alt="Icon <?php $section[$i];  ?>">
-                                            </button>
-                                        </li>
-                                        <?php endfor; ?>
-                                    </ul>
-                                </li>
-                                <?php else: ?>
-                                <li>
-                                    <button type="button" id="Nav_<?php echo $section; ?>"
-                                        data-target="<?php echo $section; ?>">
-                                        <img loading="lazy"
-                                            src="avatar-creator/UI/Icon/icon_<?php echo $section; ?>.svg"
-                                            alt="Icon <?php echo $section; ?>">
-                                    </button>
-                                </li>
-                                <?php endif; ?>
-                                <?php endforeach; ?>
+                                <?php generateNavigation(); ?>
                             </ul>
                         </nav>
 
@@ -161,10 +129,8 @@ include 'functions.php';
                     include 'avatar-creator/section/Morpho.php';
                     include 'avatar-creator/section/Hat.php';
                     include 'avatar-creator/section/Background.php';
-                    $json_data = file_get_contents('config.json');
-                    $data = json_decode($json_data, true);
-                    foreach ($data as $section) {
-                        simpleSection($section['sectionName'], $section['hasZoomFace'], $section['hasColorPart'], $section['id_color'], $section['hasReset'], $section['hasDisableMessage'],$section['hasGender'],$section['isHair'],$section['hairSize'],$section['isCostume'],$section['hasBack'],$section['customVignette']);
+                    foreach ($sections as $section) {
+                        simpleSection($section);
                     }
                 ?>
                 </div>

@@ -33,7 +33,7 @@ document.getElementById("Reset").addEventListener("click", function () {
 
     function reset_hat(section) {
         let vignettes = document.querySelectorAll('#Vignettes-' + section + ' .vignette');
-        let colors = document.querySelectorAll('#Vignettes-' + section + '-color .color-item');
+        let colors = document.querySelectorAll('#Vignettes-' + section + '-color .vignette-color');
 
         
        document.querySelector('#'+section+' .reset').addEventListener('click', function () {
@@ -53,7 +53,7 @@ document.getElementById("Reset").addEventListener("click", function () {
             for(let color of colors){
                 color.classList.remove('active');
             }
-            document.querySelector('#Vignettes-Hat-color .color-item').classList.add('active');
+            document.querySelector('#Vignettes-Hat-color .vignette-color').classList.add('active');
             document.querySelector('#Vignettes-Hat .vignette').classList.add('active');
 
             
@@ -67,12 +67,14 @@ document.getElementById("Reset").addEventListener("click", function () {
     //reset_hat('Hat_Costumes');
 
     /*-----------RESET COSTUMS-----------------*/
-    function reset_costume(section) {
+    function reset_costume(section,tabItemsSave,tabCostumes) {
         document.querySelector('#'+section+' .reset').addEventListener('click', function () {
-            for (const itemsSaveItem of tabItemsSave) {
-                document.getElementById('Result_'+itemsSaveItem).setAttribute('src', document.getElementById('Result_'+itemsSaveItem).getAttribute('data-src-store'));
-                document.getElementById(itemsSaveItem).classList.remove('disable');
-                document.getElementById(itemsSaveItem).classList.remove('item-save');
+            for (const itemSave of tabItemsSave) {
+                if (itemSave != "Hair") {
+                document.getElementById('Result_'+itemSave).setAttribute('src', document.getElementById('Result_'+itemSave).getAttribute('data-src-store'));
+                document.getElementById(itemSave).classList.remove('disable');
+                document.getElementById(itemSave).classList.remove('item-save');
+                }
             }
             for (const costumeItem of tabCostumes) {
                 document.getElementById('Result_'+costumeItem).setAttribute('src', "avatar-creator/UI/reset.png");
@@ -85,11 +87,8 @@ document.getElementById("Reset").addEventListener("click", function () {
             document.getElementById('Result_'+section).setAttribute('src', "avatar-creator/UI/reset.png");
         })
     }
-    for (const costumeItem of tabCostumes) {
-        reset_costume(costumeItem);
-    }
 
-
+    
     let removeHatButton = document.querySelectorAll('.remove-hat-button');
     let removeCostumeButton = document.querySelectorAll('.remove-costume-button');
     for(let removeHatButtonItem of removeHatButton){
