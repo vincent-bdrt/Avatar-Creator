@@ -10,15 +10,17 @@ document.getElementById("Reset").addEventListener("click", function () {
         let vignettes = document.querySelectorAll('#Vignettes-' + section + ' .vignette');
         for(const button of resetButton) {
         button.addEventListener('click', function () {
-            
+            localStorage.removeItem('Storage_' + section);
             for (let vignette of vignettes) {
                 vignette.classList.remove('active');
             }
             if (section === "Glasses") {
                 document.getElementById('Result_' + section + '_Back').setAttribute('src', "avatar-creator/UI/reset.png");
+                localStorage.removeItem('Storage_' + section +'_Back');
             }
             if (section === "Background") {
                 document.getElementById('Result_' + section + '_Back').setAttribute('src', "avatar-creator/UI/reset.png");
+                localStorage.removeItem('Storage_' + section +'_Back');
             }
             document.getElementById('Result_' + section).setAttribute('src', "avatar-creator/UI/reset.png");
             vignettes[0].classList.add('active');  
@@ -37,7 +39,7 @@ document.getElementById("Reset").addEventListener("click", function () {
 
         
        document.querySelector('#'+section+' .reset').addEventListener('click', function () {
-        
+        localStorage.removeItem('Storage_' + section);
         let colorsSection = document.getElementById('Vignettes-' + section + '-color');
         colorsSection.style.display = 'none';
 
@@ -68,17 +70,20 @@ document.getElementById("Reset").addEventListener("click", function () {
 
     /*-----------RESET COSTUMS-----------------*/
     function reset_costume(section,tabItemsSave,tabCostumes) {
+        
         document.querySelector('#'+section+' .reset').addEventListener('click', function () {
             for (const itemSave of tabItemsSave) {
                 if (itemSave != "Hair") {
                 document.getElementById('Result_'+itemSave).setAttribute('src', document.getElementById('Result_'+itemSave).getAttribute('data-src-store'));
                 document.getElementById(itemSave).classList.remove('disable');
                 document.getElementById(itemSave).classList.remove('item-save');
+                
                 }
             }
             for (const costumeItem of tabCostumes) {
                 document.getElementById('Result_'+costumeItem).setAttribute('src', "avatar-creator/UI/reset.png");
                 let vignetteCostumes = document.querySelectorAll('#'+costumeItem+' .vignette');
+                localStorage.removeItem('Storage_' + costumeItem);
                 for(let vignette of vignetteCostumes){
                     vignette.classList.remove('active');
                 }
@@ -86,22 +91,24 @@ document.getElementById("Reset").addEventListener("click", function () {
             /*-----------*/
             document.getElementById('Result_'+section).setAttribute('src', "avatar-creator/UI/reset.png");
         })
+        let removeCostumeButton = document.querySelectorAll('.remove-costume-button');
+        for(let removeCostumeButtonItem of removeCostumeButton){
+            removeCostumeButtonItem.addEventListener('click', function () {
+                for (const costumeItem of tabCostumes) {
+                    document.querySelector('#'+costumeItem+' .reset').click();
+                }
+            });
+        }
+
     }
 
     
     let removeHatButton = document.querySelectorAll('.remove-hat-button');
-    let removeCostumeButton = document.querySelectorAll('.remove-costume-button');
+  
     for(let removeHatButtonItem of removeHatButton){
         removeHatButtonItem.addEventListener('click', function () {
             document.querySelector('#Hat .reset').click();
         });
     }
-    for(let removeCostumeButtonItem of removeCostumeButton){
-        removeCostumeButtonItem.addEventListener('click', function () {
-            let costumesSectionActive = document.querySelectorAll('.isCostume .reset');
-            for(let costumeSection of costumesSectionActive){
-                costumeSection.click();
-            }
-        });
-    }
+
 
