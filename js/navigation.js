@@ -40,7 +40,20 @@ let buttons = document.querySelectorAll('#Categories button');
 buttons.forEach(button => {
     button.addEventListener('click', function () {
         // get attribute data-target from button and add active id to it
-
+        let siblings = this.parentNode.parentNode.children;
+        for (const element of siblings) {
+            if (element !== this.parentNode) {
+                element.classList.remove('active');
+            }
+        }
+        if (this.parentNode.classList.contains('with_subnav')) {
+            let siblings2 = this.parentNode.parentNode.parentNode.children;
+            for (const element of siblings2) {
+                if (element !== this.parentNode.parentNode) {
+                    element.classList.remove('active');
+                }
+            }
+        }
 
 
         this.parentNode.classList.add('active');
@@ -61,20 +74,7 @@ buttons.forEach(button => {
             });
             document.getElementById(target).style.display = 'flex';
         }
-        let siblings = this.parentNode.parentNode.children;
-        for (const element of siblings) {
-            if (element !== this.parentNode) {
-                element.classList.remove('active');
-            }
-        }
-        if (this.parentNode.classList.contains('with_subnav')) {
-            let siblings2 = this.parentNode.parentNode.parentNode.children;
-            for (const element of siblings2) {
-                if (element !== this.parentNode.parentNode) {
-                    element.classList.remove('active');
-                }
-            }
-        }
+        scrollNavigation();
     });
 });
 
@@ -85,3 +85,44 @@ categories.addEventListener('wheel', function (event) {
     categories.scrollLeft += event.deltaY;
 }
 );
+
+
+
+const scrollContainer = document.querySelector('#Categories .scroll-container');
+const leftArrow = document.querySelector('#Categories .left-arrow');
+const rightArrow = document.querySelector('#Categories .right-arrow');
+
+function scrollNavigation(){
+    if (scrollContainer.scrollLeft > 0) {
+        leftArrow.classList.add('active');
+    } else {
+        leftArrow.classList.remove('active');
+    }
+    if (scrollContainer.scrollLeft < scrollContainer.scrollWidth - scrollContainer.clientWidth) {
+        rightArrow.classList.add('active');
+    } else {
+        rightArrow.classList.remove('active');
+    }
+}
+
+//If scrollContainer has scroll, then show left and right arrows
+scrollContainer.addEventListener('scroll', function () {
+    scrollNavigation()
+});
+
+//Scroll left and right
+leftArrow.addEventListener('click', function () {
+    scrollContainer.scrollLeft -= 130;
+});
+rightArrow.addEventListener('click', function () {
+    scrollContainer.scrollLeft += 130;
+});
+
+//check if the scrollContainer has scroll or not when the page is loaded and show/hide arrows accordingly and resize the scrollContainer
+window.addEventListener('load', function () {
+    scrollNavigation();
+});
+//check on resized window
+window.addEventListener('resize', function () {
+    scrollNavigation();
+});

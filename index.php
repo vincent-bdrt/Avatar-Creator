@@ -117,12 +117,19 @@ require_once 'functions.php';
                 </div>
                 <div id="Right-Section">
                     <div id="Categories">
-                        <nav>
-                            <ul>
-                                <?php generateNavigation(); ?>
-                            </ul>
-                        </nav>
+                    <nav class="nav-container">
+        <div class="scroll-arrow left-arrow"> <img src ="avatar-creator/UI/Icon/left-arrow.svg" alt="arrow-left">
 
+        </div>
+        <div class="scroll-container">
+            <ul>
+                                <?php generateNavigation(); ?>
+                                </ul>
+        </div>
+        <div class="scroll-arrow right-arrow">
+            <img src ="avatar-creator/UI/Icon/right-arrow.svg" alt="arrow-right">
+        </div>
+    </nav>
 
                     </div>
                     <?php 

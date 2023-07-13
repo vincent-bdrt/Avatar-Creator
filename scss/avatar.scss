@@ -529,10 +529,58 @@ body.game-started .menu-plus {
 	margin: 15px auto;
 	scroll-behavior: smooth;
 	nav{
-		display: block;
-		width: max-content;
-		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		overflow-x: auto;
 	}
+	.scroll-arrow {
+		transition: all 0.3s ease;
+		display: none;
+		align-items: center;
+		justify-content: center;
+		padding: 0.5rem;
+		background: none;
+		box-shadow: none;
+		border: none;
+		z-index: 20;
+		position: absolute;
+		top: 8px;
+		cursor: pointer;
+		background-color: white;
+		border-radius: 15px;
+		z-index: 1000;
+		img{
+			width: 2rem;
+			height: 2rem;
+			filter: grayscale(100%);
+			opacity: 0.8;
+			transition: all 0.3s ease;
+		}
+		&:hover {
+			background: #f4f4f4;
+			cursor: pointer;
+			img{
+				filter:grayscale(0%);
+				opacity: 1;
+			}
+		}
+		&.active {
+			display: flex;
+		}
+		&.left-arrow{
+			left: 0;
+		}
+		&.right-arrow{
+			right: 0;
+		}
+	}
+	.scroll-container {
+		flex: 1;
+		overflow:auto;
+		//smooth scroll
+		scroll-behavior: smooth;
+	}
+
 	ul {
 		display: flex;
 		justify-content: space-between;
