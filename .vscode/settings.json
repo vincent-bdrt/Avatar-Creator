@@ -1,3 +1,23 @@
 {
-    "easysass.targetDir": "css"
+    "easysass.targetDir": "css",
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#b0a1c2",
+        "activityBar.background": "#b0a1c2",
+        "activityBar.foreground": "#15202b",
+        "activityBar.inactiveForeground": "#15202b99",
+        "activityBarBadge.background": "#876d58",
+        "activityBarBadge.foreground": "#e7e7e7",
+        "commandCenter.border": "#15202b99",
+        "sash.hoverBorder": "#b0a1c2",
+        "statusBar.background": "#9682ae",
+        "statusBar.foreground": "#15202b",
+        "statusBarItem.hoverBackground": "#7c6399",
+        "statusBarItem.remoteBackground": "#9682ae",
+        "statusBarItem.remoteForeground": "#15202b",
+        "titleBar.activeBackground": "#9682ae",
+        "titleBar.activeForeground": "#15202b",
+        "titleBar.inactiveBackground": "#9682ae99",
+        "titleBar.inactiveForeground": "#15202b99"
+    },
+    "peacock.remoteColor": "#9682ae"
 }

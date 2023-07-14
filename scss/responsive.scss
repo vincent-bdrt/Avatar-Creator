@@ -36,6 +36,7 @@
 	}
 	#Right-Section section{
 		flex-direction: column;
+		min-height: max-content;
 	}
 }
 
@@ -58,6 +59,11 @@
 		ul{
 			border-radius: 0;
 		}
+	   }
+	   .vignettes-section-color{
+		display: flex;
+		height: max-content;
+		width: calc(100% - 32px);
 	   }
 }
 
