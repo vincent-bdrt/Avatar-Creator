@@ -134,7 +134,6 @@ require_once 'functions.php';
                     </div>
                     <?php 
                     include 'avatar-creator/section/Morpho.php';
-                    include 'avatar-creator/section/Hat.php';
                     include 'avatar-creator/section/Background.php';
                     foreach ($sections as $section) {
                         simpleSection($section);

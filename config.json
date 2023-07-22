@@ -2,7 +2,6 @@
   "sections": [{
       "sectionName": "Skin",
       "hasZoomFace": false,
-
       "id_color": null,
       "hasReset": false,
       "hasDisableMessage": false,
@@ -15,7 +14,6 @@
     {
       "sectionName": "Mustaches",
       "hasZoomFace": true,
-
       "id_color": 1,
       "hasReset": true,
       "hasDisableMessage": false,
@@ -32,7 +30,6 @@
     {
       "sectionName": "Beards",
       "hasZoomFace": false,
-
       "id_color": 1,
       "hasReset": true,
       "hasDisableMessage": false,
@@ -45,7 +42,6 @@
     {
       "sectionName": "Makeup",
       "hasZoomFace": true,
-
       "id_color": null,
       "hasReset": true,
       "hasDisableMessage": false,
@@ -62,7 +58,6 @@
     {
       "sectionName": "Spot",
       "hasZoomFace": true,
-
       "id_color": null,
       "hasReset": true,
       "hasDisableMessage": false,
@@ -79,7 +74,6 @@
     {
       "sectionName": "Hair",
       "hasZoomFace": false,
-
       "id_color": 1,
       "hasReset": false,
       "hasDisableMessage": true,
@@ -102,7 +96,6 @@
     {
       "sectionName": "Earring",
       "hasZoomFace": false,
-
       "id_color": 0,
       "hasReset": true,
       "hasDisableMessage": false,
@@ -115,7 +108,6 @@
     {
       "sectionName": "Glasses",
       "hasZoomFace": true,
-
       "id_color": 0,
       "hasReset": true,
       "hasDisableMessage": false,
@@ -134,7 +126,6 @@
     {
       "sectionName": "Eyebrow",
       "hasZoomFace": true,
-
       "id_color": 1,
       "hasReset": false,
       "hasDisableMessage": false,
@@ -151,7 +142,6 @@
     {
       "sectionName": "Eyes",
       "hasZoomFace": true,
-
       "id_color": null,
       "hasReset": false,
       "hasDisableMessage": false,
@@ -164,7 +154,6 @@
     {
       "sectionName": "Mouth",
       "hasZoomFace": true,
-
       "id_color": null,
       "hasReset": false,
       "hasDisableMessage": false,
@@ -177,7 +166,6 @@
     {
       "sectionName": "Nose",
       "hasZoomFace": true,
-
       "id_color": null,
       "hasReset": false,
       "hasDisableMessage": false,
@@ -190,7 +178,6 @@
     {
       "sectionName": "Necklace",
       "hasZoomFace": false,
-
       "id_color": 0,
       "hasReset": true,
       "hasDisableMessage": false,
@@ -203,7 +190,6 @@
     {
       "sectionName": "Top",
       "hasZoomFace": false,
-
       "id_color": 0,
       "hasReset": true,
       "hasDisableMessage": true,
@@ -216,7 +202,6 @@
     {
       "sectionName": "Jacket",
       "hasZoomFace": false,
-
       "id_color": 0,
       "hasReset": true,
       "hasDisableMessage": true,
@@ -227,9 +212,20 @@
       "customVignette": []
     },
     {
+      "sectionName": "Hat",
+      "hasZoomFace": false,
+      "id_color": 0,
+      "hasReset": true,
+      "hasDisableMessage": false,
+      "hasGender": false,
+      "optionsFilter": [],
+      "isCostume": false,
+      "hasBack": true,
+      "customVignette": ["Hat_Back","Base","Hat"]
+    },
+    {
       "sectionName": "Antiquity",
       "hasZoomFace": false,
-
       "id_color": null,
       "hasReset": true,
       "hasDisableMessage": false,
@@ -242,7 +238,6 @@
     {
       "sectionName": "Christmas",
       "hasZoomFace": false,
-
       "id_color": null,
       "hasReset": true,
       "hasDisableMessage": false,
@@ -255,7 +250,6 @@
     {
       "sectionName": "Halloween",
       "hasZoomFace": false,
-
       "id_color": null,
       "hasReset": true,
       "hasDisableMessage": false,
@@ -268,7 +262,6 @@
     {
       "sectionName": "Medieval",
       "hasZoomFace": false,
-
       "id_color": null,
       "hasReset": true,
       "hasDisableMessage": false,
@@ -281,7 +274,6 @@
     {
       "sectionName": "Pirate",
       "hasZoomFace": false,
-
       "id_color": null,
       "hasReset": true,
       "hasDisableMessage": false,
@@ -294,7 +286,6 @@
     {
       "sectionName": "Neutral",
       "hasZoomFace": false,
-
       "id_color": null,
       "hasReset": true,
       "hasDisableMessage": false,
@@ -307,7 +298,6 @@
     {
       "sectionName": "Job",
       "hasZoomFace": false,
-
       "id_color": null,
       "hasReset": true,
       "hasDisableMessage": false,

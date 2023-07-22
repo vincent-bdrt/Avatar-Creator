@@ -408,7 +408,6 @@
         for (const costumeItem of tabCostumes) {
           reset_costume(costumeItem, tabItemsSave, tabCostumes);
         }
-
         //run change() for each section
         for (const section of data.sections) {
           change(section.sectionName, section.hasBack, section.isCostume, section.id_color, section.hasGender, tabCostumes, tabItemsSave);

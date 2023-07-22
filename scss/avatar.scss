@@ -516,6 +516,56 @@ body.game-started .menu-plus {
 /*--------------------------------------------*/
 /*Categories List*/
 /*--------------------------------------------*/
+.scroll-arrow {
+	transition: all 0.3s ease;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	padding: 0.5rem;
+	background: none;
+	box-shadow: none;
+	border: none;
+	z-index: 20;
+	position: absolute;
+	top: 8px;
+	cursor: pointer;
+	background-color: white;
+	border-radius: 15px;
+	z-index: 1000;
+	img{
+		width: 2rem;
+		height: 2rem;
+		filter: grayscale(100%);
+		opacity: 0.8;
+		transition: all 0.3s ease;
+	}
+	&:hover {
+		background: #f4f4f4;
+		cursor: pointer;
+		img{
+			filter:grayscale(0%);
+			opacity: 1;
+		}
+	}
+	&.active {
+		display: flex;
+	}
+	&.left-arrow{
+		left: 0;
+	}
+	&.right-arrow{
+		right: 0;
+	}
+}
+
+.scroll-container {
+	flex: 1;
+	overflow:auto;
+	scroll-behavior: smooth;
+}
+
+
+
 #Categories {
 	margin: 15px;
 	padding: 0;
@@ -533,54 +583,7 @@ body.game-started .menu-plus {
 		align-items: center;
 		overflow-x: auto;
 	}
-	.scroll-arrow {
-		transition: all 0.3s ease;
-		display: none;
-		align-items: center;
-		justify-content: center;
-		padding: 0.5rem;
-		background: none;
-		box-shadow: none;
-		border: none;
-		z-index: 20;
-		position: absolute;
-		top: 8px;
-		cursor: pointer;
-		background-color: white;
-		border-radius: 15px;
-		z-index: 1000;
-		img{
-			width: 2rem;
-			height: 2rem;
-			filter: grayscale(100%);
-			opacity: 0.8;
-			transition: all 0.3s ease;
-		}
-		&:hover {
-			background: #f4f4f4;
-			cursor: pointer;
-			img{
-				filter:grayscale(0%);
-				opacity: 1;
-			}
-		}
-		&.active {
-			display: flex;
-		}
-		&.left-arrow{
-			left: 0;
-		}
-		&.right-arrow{
-			right: 0;
-		}
-	}
-	.scroll-container {
-		flex: 1;
-		overflow:auto;
-		//smooth scroll
-		scroll-behavior: smooth;
-	}
-
+	
 	ul {
 		display: flex;
 		justify-content: space-between;
@@ -809,6 +812,7 @@ body.game-started .menu-plus {
     padding: 16px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+	grid-auto-rows: max-content;
     grid-gap: 16px;
     width: 1fr;
     flex: 1;
@@ -915,18 +919,18 @@ div#Vignettes-Background div.vignette img {
     box-shadow: 0 2.8px 2.2px rgba(0,0,0,0.02), 0 6.7px 5.3px rgba(0,0,0,0.028), 0 12.5px 10px rgba(0,0,0,0.035), 0 22.3px 17.9px rgba(0,0,0,0.042), 0 41.8px 33.4px rgba(0,0,0,0.05), 0 100px 80px rgba(0,0,0,0.07);
     position: relative;
     margin: 0px 16px;
-    display: grid;
-    flex-wrap: wrap;
-    gap: 5px;
-    max-width: max-content;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    overflow: auto;
-    flex: 1;
     width: 260px;
     margin: 16px;
     padding-top: 50px;
 	height: max-content;
-
+	overflow-x: auto;
+	.scroll-container{
+		display: grid;
+		flex-wrap: wrap;
+		gap: 5px;
+		max-width: max-content;
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	}
 	span {
 		position: absolute;
 		top: 0px;
@@ -940,6 +944,13 @@ div#Vignettes-Background div.vignette img {
 		padding-top: 10px;
 		padding-bottom: 10px;
 	}
+	.scroll-arrow{
+		img{
+			width: 16px;
+			height: 16px;
+			
+		}
+	}
 }
 
 .vignette-color {
@@ -950,6 +961,7 @@ div#Vignettes-Background div.vignette img {
 	border-radius: 15px;
 	box-shadow:0px 0px 0px 2px rgba(0, 0, 0, .3) inset;
 	position: relative;
+	aspect-ratio: 1/1;
 
 	&:not(.reset):hover,
 	&:not(.reset).active {
@@ -974,8 +986,6 @@ div#Vignettes-Background div.vignette img {
 /*--------------------------------------------*/
 
 .button.gender {
-	width: 300px;
-	height: 300px;
 	border-radius: 0;
 	border: none;
 	background-color: white;
@@ -991,7 +1001,8 @@ div#Vignettes-Background div.vignette img {
 		0 41.8px 33.4px rgba(0, 0, 0, 0.05),
 		0 100px 80px rgba(0, 0, 0, 0.07);
 	border-radius: 10px;
-
+	aspect-ratio: 1/1;
+	min-height: 150px;
 	&:hover {
 		transition-duration: 150ms;
 		box-shadow:

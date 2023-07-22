@@ -115,9 +115,14 @@ function simpleSection($section)
     if ($hasColor) {
         echo '<div class="vignettes-section-color" id="Vignettes-' . $sectionName . '-color">
     <span><i class="fas fa-eye-dropper"></i></span>';
+    echo '<div class="scroll-arrow left-arrow"> <img src="avatar-creator/UI/Icon/left-arrow.svg" alt="arrow-left"></div>';
+    echo '<div class="scroll-container">';           
+    
     for ($i = 0; $i < $sectionColorLength; $i++) {
         echo '<div class="vignette-color" data-color="'. ($i + 1) .'" style="background-color:'. $colors[$id_color]["colorValues"][$i] .'"></div>';
     }
+    echo '</div>';
+    echo '<div class="scroll-arrow right-arrow active"> <img src="avatar-creator/UI/Icon/right-arrow.svg" alt="arrow-right"> </div>';
     echo '</div>';
 }
 echo '</section>';

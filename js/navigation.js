@@ -7,7 +7,7 @@ let download = document.getElementById('Download');
 let reset = document.getElementById('Reset');
 let random = document.getElementById('Random');
 let morphology = document.getElementById('Morphology-btn');
-
+/*
 document.addEventListener("contextmenu", function (event) {
     event.preventDefault();
     menuPlus.style.display = "block";
@@ -33,12 +33,15 @@ morphologyBtn.addEventListener('click', function () {
     morphology.click();
 });
 
-
+*/
 //Navigation
 // Sélectionner les éléments de navigation
 let buttons = document.querySelectorAll('#Categories button');
 buttons.forEach(button => {
     button.addEventListener('click', function () {
+        const dataTarget = this.getAttribute('data-target');
+
+
         // get attribute data-target from button and add active id to it
         let siblings = this.parentNode.parentNode.children;
         for (const element of siblings) {
@@ -62,7 +65,7 @@ buttons.forEach(button => {
             document.querySelector('.with_subnav.active ul li').classList.add('active');
             document.querySelector('.with_subnav.active ul li button').click();
             let subnav_target = document.querySelector('.with_subnav.active ul li button').getAttribute('data-target');
-
+            
             document.querySelectorAll('#Right-Section section').forEach(element => {
                 element.style.display = 'none';
             });
@@ -74,7 +77,8 @@ buttons.forEach(button => {
             });
             document.getElementById(target).style.display = 'flex';
         }
-        scrollNavigation();
+        scrollNavigationSection('Categories');
+        scrollNavigationSection(dataTarget);
     });
 });
 
@@ -87,11 +91,12 @@ categories.addEventListener('wheel', function (event) {
 );
 
 
-
-const scrollContainer = document.querySelector('#Categories .scroll-container');
-const leftArrow = document.querySelector('#Categories .left-arrow');
-const rightArrow = document.querySelector('#Categories .right-arrow');
-
+function scrollNavigationSection(section) {
+    console.log(section);
+    if(document.querySelector("#Vignettes-"+section+"-color")!== null || section === 'Categories' ){
+const scrollContainer = document.querySelector('#'+section+' .scroll-container');
+const leftArrow = document.querySelector('#'+section+' .left-arrow');
+const rightArrow = document.querySelector('#'+section+' .right-arrow');
 function scrollNavigation(){
     if (scrollContainer.scrollLeft > 0) {
         leftArrow.classList.add('active');
@@ -107,7 +112,7 @@ function scrollNavigation(){
 
 //If scrollContainer has scroll, then show left and right arrows
 scrollContainer.addEventListener('scroll', function () {
-    scrollNavigation()
+    scrollNavigation();
 });
 
 //Scroll left and right
@@ -117,12 +122,11 @@ leftArrow.addEventListener('click', function () {
 rightArrow.addEventListener('click', function () {
     scrollContainer.scrollLeft += 130;
 });
-
-//check if the scrollContainer has scroll or not when the page is loaded and show/hide arrows accordingly and resize the scrollContainer
-window.addEventListener('load', function () {
-    scrollNavigation();
-});
+scrollNavigation();
 //check on resized window
 window.addEventListener('resize', function () {
     scrollNavigation();
 });
+    }
+};
+scrollNavigationSection('Categories');

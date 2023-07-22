@@ -19,6 +19,8 @@
   <?php 
             echo '<div class="vignettes-section-color" id="Vignettes-Background-color">
             <span><i class="fas fa-eye-dropper"></i></span>';
+            echo '<div class="scroll-arrow left-arrow"> <img src="avatar-creator/UI/Icon/left-arrow.svg" alt="arrow-left"></div>';
+            echo '<div class="scroll-container">';
             $sectionColorLengthHat = 0;
             if (isset($colors[0]["colorValues"])) {
                 $sectionColorLengthHat = count($colors[0]["colorValues"]);
@@ -27,5 +29,8 @@
             for ($i = 0; $i < $sectionColorLengthHat ; $i++) {
                 echo '<div class="vignette-color" data-color="'. ($i + 1) .'" style="background-color:'. $colors[0]["colorValues"][$i].'"></div>';
             }
-            echo '</div>';?>
+            echo '</div>';
+            echo '<div class="scroll-arrow right-arrow active"> <img src="avatar-creator/UI/Icon/right-arrow.svg" alt="arrow-right"> </div>';
+            echo '</div>';
+            ?>
 </section>
