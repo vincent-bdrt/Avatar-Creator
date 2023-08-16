@@ -1,12 +1,12 @@
-  /**
+    /**
    * @file
    * Global utilities.
    *
    */
-  //VARIABLES--------------------------------------------------------------------
+    //VARIABLES--------------------------------------------------------------------
   let currentGender = "Men";
 
-  //START BUTTON-----------------------------------------------------------------
+    //START BUTTON-----------------------------------------------------------------
   let start = document.querySelector('.start');
   start.addEventListener('click', function () {
     document.querySelector('section.launcher').style.top = '-100%';
@@ -18,7 +18,7 @@
     }, 1000);
   });
 
-  //MODAL MORPHOLOGY-------------------------------------------------------------
+    //MODAL MORPHOLOGY-------------------------------------------------------------
   function modalMorphology(tabSectionsWithGender) {
     document.getElementById('Morphology-btn').addEventListener('click', function () {
       document.querySelector('.modal-morphology').style.display = 'block';
@@ -42,8 +42,8 @@
             });
           }
         } else {
-          currentGender = "Men";
-          let vignettes = document.querySelectorAll('.vignette img');
+              currentGender = "Men";
+          let vignettes     = document.querySelectorAll('.vignette img');
           vignettes.forEach(function (vignette) {
             vignette.classList.remove('Women');
           });
@@ -58,7 +58,7 @@
       });
     });
   };
-  //MODAL information-------------------------------------------------------------
+    //MODAL information-------------------------------------------------------------
   document.getElementById('information').addEventListener('click', function () {
     document.querySelector('.modal-information').style.display = 'block';
   });
@@ -82,250 +82,199 @@
     }
   });
 
-  /*-----------------------------------------------------------------------------------*/
-  /*----------------------------------FUNCTIONS----------------------------------------*/
-  /*-----------------------------------------------------------------------------------*/
+    /*-----------------------------------------------------------------------------------*/
+    /*----------------------------------FUNCTIONS----------------------------------------*/
+    /*-----------------------------------------------------------------------------------*/
 
-  function change(section, hasBack, isCostumes, id_color, hasGender, tabCostumes, tabItemsSave) {
+  function globalChange(section, tabCostumes, tabItemsSave) {
 
-    /*VARIABLES*/
-    let vignettes = document.querySelectorAll('#Vignettes-' + section + ' .vignette');
-    let result = document.getElementById('Result_' + section);
-    let resultSrc, resultSrcBack;
-    if (hasBack) {
-      var resultBack = document.getElementById('Result_' + section + '_Back');
+    if (document.querySelector('#Vignettes-' + section + '-color .vignette-color')) {
+      let colors = document.querySelectorAll('#Vignettes-' + section + '-color .vignette-color');
+      colors[0].classList.add('active');
+      changeColor(section);
     }
 
-    /*Change Shape*/
+    changeShape(section, tabCostumes, tabItemsSave);
+  }
+
+
+  function changeShape(section, tabCostumes, tabItemsSave) {
+    let vignettes = document.querySelectorAll('#Vignettes-' + section + ' .vignette');
+    vignettes[0].classList.add('active');
     for (const vignette of vignettes) {
       vignette.addEventListener('click', function () {
-        //Variables
-        let dataElement = this.getAttribute("data-element");
-        let dataColor;
-        //Remove active class
-        vignettes.forEach(function (vignette) {
-          vignette.classList.remove('active');
-        });
-        this.classList.add('active');
-        //Save Costums
-        if (isCostumes) {
-          console.log("isCostumes" + tabCostumes);
-          for (const costume of tabCostumes) {
-            document.getElementById('Result_' + costume).setAttribute('src', "avatar-creator/UI/reset.png");
-            let vignettesCostumes = document.querySelectorAll('#Vignettes-' + costume + ' .vignette');
-            vignettesCostumes.forEach(function (vignette) {
-              vignette.classList.remove('active');
-            });
-          }
-          for (const itemSave of tabItemsSave) {
-            if (!document.getElementById(itemSave).classList.contains('item-save') && itemSave != "Hair") {
-              document.getElementById(itemSave).classList.add('item-save');
-              document.getElementById('Result_' + itemSave).setAttribute('data-src-store', document.getElementById('Result_' + itemSave).getAttribute('src'));
-              document.getElementById('Result_' + itemSave).setAttribute('src', "avatar-creator/UI/reset.png");
-            }
-            document.getElementById(itemSave).classList.add('disable');
-          }
-        }
-        if (id_color != null) {
+        let dataColor, dataElement, dataSize, dataCostumes;
+          //Variables
+        dataElement = this.getAttribute("data-element");
+          //if colors is not null
+        if (document.getElementById('Vignettes-' + section + '-color')) {
           dataColor = document.querySelector('#Vignettes-' + section + '-color .vignette-color.active').getAttribute("data-color");
         }
-        //Create Result URL;
-        if (section == "Hair") {
-          let dataColor = document.querySelector('#Vignettes-' + section + '-color .vignette-color.active').getAttribute("data-color");
-          let dataSize = this.getAttribute("data-size");
-          resultSrc = 'avatar-creator/images/Hair/Front/' + dataSize + '/' + dataElement + '/' + dataColor + '.png';
-          resultSrcBack = 'avatar-creator/images/Hair/Back/' + dataSize + '/' + dataElement + '/' + dataColor + '.png';
-          result.setAttribute('data-color', dataColor);
-          result.setAttribute('data-size', dataSize);
-          result.setAttribute('data-element', dataElement);
-        } else if (id_color != null && hasBack) {
-          let dataColor = document.querySelector('#Vignettes-' + section + '-color .vignette-color.active').getAttribute("data-color");
-          resultSrc = 'avatar-creator/images/' + section + '/Front/' + dataElement + '/' + dataColor + '.png';
-          resultSrcBack = 'avatar-creator/images/' + section + '/Back/' + dataElement + '/' + dataColor + '.png';
-        } else if (id_color != null && hasGender) {
-          let dataColor = document.querySelector('#Vignettes-' + section + '-color .vignette-color.active').getAttribute("data-color");
-          resultSrc = 'avatar-creator/images/' + section + '/' + currentGender + '/' + dataElement + '/' + dataColor + '.png';
-        } else if (hasGender && isCostumes) {
-          resultSrc = 'avatar-creator/images/' + section + '/' + currentGender + '/' + dataElement + '.png';
-        } else if (hasGender) {
-          resultSrc = 'avatar-creator/images/' + section + '/' + currentGender + '/' + dataElement + '.png';
-        } else if (id_color != null) {
-          resultSrc = 'avatar-creator/images/' + section + '/' + dataElement + '/' + dataColor + '.png';
-        } else {
-          resultSrc = 'avatar-creator/images/' + section + '/' + dataElement + '.png';
+        if (section === "Hair") {
+          dataSize = this.getAttribute("data-size");
         }
-
-        //Change result : 
-        result.setAttribute('src', resultSrc);
-        if (hasBack) {
-          resultBack.setAttribute('src', resultSrcBack);
+        if (section === "Hat-Costumes") {
+          dataCostumes = this.getAttribute("data-costumes");
         }
-
-
-        // save on local storage
-        if (!isCostumes) {
-          localStorage.setItem('Storage_' + section, resultSrc);
-          if (hasBack) {
-            localStorage.setItem('Storage_' + section + '_Back', resultSrcBack);
-          }
+        changeHat(section,dataElement)
+          //Remove all active classes
+        for (const vignette of vignettes) {
+          vignette.classList.remove('active');
         }
+        if (document.querySelector('#Vignettes-' + section).classList.contains('isCostume')) {
+          saveCostums(tabCostumes, tabItemsSave);
+        }
+        this.classList.add('active');
+        createResultSrc(section, dataElement, dataColor, dataSize, dataCostumes);
       });
-
-
     }
-    /*Change Color*/
-    if (id_color != null) {
-      let colors = document.querySelectorAll('#Vignettes-' + section + '-color .vignette-color');
-      vignettes[0].classList.add('active');
-      colors[0].classList.add('active');
-      for (const color of colors) {
-        color.addEventListener('click', function () {
-          //Variables
-          let dataColor = this.getAttribute("data-color");
-          let dataElement = document.querySelector('#Vignettes-' + section + ' .vignette.active').getAttribute("data-element");
-          //Remove active class
-          colors.forEach(function (color) {
-            color.classList.remove('active');
-          });
-          this.classList.add('active');
-          /*Change vignette color**/
-          for (let i = 1; i < vignettes.length + 1; i++) {
-            let vignetteItem = document.querySelector('#Vignettes-' + section + ' .vignette[data-element="' + i + '"] img[data-vignette-item="' + section + '"]');
-            if (hasGender) {
-              vignetteItem.setAttribute("src", "avatar-creator/images/" + section + "/" + currentGender + '/' + i + "/" + dataColor + ".png");
-            } else if (hasBack) {
-              if (section == "Hair") {
+  };
 
-                let vignetteElement = document.querySelector('#Vignettes-Hair .vignette:nth-child(' + i + ')').getAttribute("data-element");
-                let vignetteSize = document.querySelector('#Vignettes-Hair .vignette:nth-child(' + i + ') ').getAttribute("data-size");
-                document.querySelector('#Vignettes-Hair .vignette:nth-child(' + i + ') img[data-vignette-item="Hair"]').setAttribute("src", "avatar-creator/images/Hair/Front/" + vignetteSize + "/" + vignetteElement + "/" + dataColor + ".png");
-                document.querySelector('#Vignettes-Hair .vignette:nth-child(' + i + ') img[data-vignette-item="Hair_Back"]').setAttribute("src", "avatar-creator/images/Hair/Back/" + vignetteSize + "/" + vignetteElement + "/" + dataColor + ".png");
-              } else {
-                document.querySelector('#Vignettes-' + section + ' .vignette[data-element="' + i + '"]  img[data-vignette-item="' + section + '"]').setAttribute("src", "avatar-creator/images/" + section + "/Front/" + i + "/" + dataColor + ".png");
-                document.querySelector('#Vignettes-' + section + ' .vignette[data-element="' + i + '"]  img[data-vignette-item="' + section + '_Back"]').setAttribute("src", "avatar-creator/images/" + section + "/Back/" + i + "/" + dataColor + ".png");
-              };
-            } else {
-              vignetteItem.setAttribute("src", "avatar-creator/images/" + section + "/" + i + "/" + dataColor + ".png");
-            }
-          }
-          //Create Result URL;
-          if (section == "Hair") {
-            let dataSize = document.querySelector('#Vignettes-Hair .vignette.active ').getAttribute("data-size");
-            resultSrc = 'avatar-creator/images/Hair/Front/' + dataSize + '/' + dataElement + '/' + dataColor + '.png';
-            resultSrcBack = 'avatar-creator/images/Hair/Back/' + dataSize + '/' + dataElement + '/' + dataColor + '.png';
-            result.setAttribute('data-color', dataColor);
-            result.setAttribute('data-size', dataSize);
-            result.setAttribute('data-element', dataElement);
-          } else if (hasBack) {
-            resultSrc = 'avatar-creator/images/' + section + '/Front/' + dataElement + '/' + dataColor + '.png';
-            resultSrcBack = 'avatar-creator/images/' + section + '/Back/' + dataElement + '/' + dataColor + '.png';
-          } else if (hasGender) {
-            resultSrc = 'avatar-creator/images/' + section + '/' + currentGender + '/' + dataElement + '/' + dataColor + '.png';
-          } else {
-            resultSrc = 'avatar-creator/images/' + section + '/' + dataElement + '/' + dataColor + '.png';
-          }
-          //Change result & save cookies
-          //Change result : 
-          result.setAttribute('src', resultSrc);
-          if (hasBack) {
-            resultBack.setAttribute('src', resultSrcBack);
-          }
-          // save on local storage
-          if (!isCostumes) {
-            localStorage.setItem('Storage_' + section, resultSrc);
-            if (hasBack) {
-              localStorage.setItem('Storage_' + section + '_Back', resultSrcBack);
-            }
-          }
-        });
+  function changeColor(section) {
+    let vignettes = document.querySelectorAll('#Vignettes-' + section + '-color .vignette-color');
+    for (const vignette of vignettes) {
+      vignette.addEventListener('click', function () {
+          //Variables
+        let dataColor, dataElement, dataSize, dataCostumes;
+        dataColor   = this.getAttribute("data-color");
+        dataElement = document.querySelector('#Vignettes-' + section + ' .vignette.active').getAttribute("data-element");
+        if (section === "Hair") {
+          dataSize = document.querySelector('#Vignettes-' + section + ' .vignette.active').getAttribute("data-size");
+        }
+        changeHat(section,dataElement)
+
+          //Remove all active classes
+        for (const vignette of vignettes) {
+          vignette.classList.remove('active');
+        }
+        this.classList.add('active');
+        changeVignette(section, dataColor)
+        createResultSrc(section, dataElement, dataColor, dataSize, dataCostumes);
+      });
+    }
+  }
+
+  function createResultSrc(section, dataElement, dataColor, dataSize, dataCostumes) {
+    console.log(section, dataElement, dataColor, dataSize, dataCostumes)
+    let result               = document.getElementById('Result_' + section);
+    let sectionVignette      = document.getElementById('Vignettes-' + section);
+    let sectionVignetteColor = document.getElementById('Vignettes-' + section + '-color');
+
+    let resultSrc, resultSrcBack;
+    if (section == "Hair") {
+      resultSrc     = `avatar-creator/images/Hair/Front/${dataSize}/${dataElement}/${dataColor}.png`;
+      resultSrcBack = `avatar-creator/images/Hair/Back/${dataSize}/${dataElement}/${dataColor}.png`;
+      result.setAttribute('data-color', dataColor);
+      result.setAttribute('data-size', dataSize);
+      result.setAttribute('data-element', dataElement);
+    } else if (section == "Hat-Costumes") {
+      resultSrc     = `avatar-creator/images/${dataCostumes}/Hat/${dataElement}/Shape/1.png`;
+      resultSrcBack = `avatar-creator/images/${dataCostumes}/Hat/${dataElement}/Shape_Back/1.png`;
+    } else if (sectionVignetteColor && sectionVignette.classList.contains('hasBack')) {
+      resultSrc     = `avatar-creator/images/${section}/Front/${dataElement}/${dataColor}.png`;
+      resultSrcBack = `avatar-creator/images/${section}/Back/${dataElement}/${dataColor}.png`;
+    } else if (sectionVignetteColor && sectionVignette.classList.contains('hasGender')) {
+      resultSrc = `avatar-creator/images/${section}/${currentGender}/${dataElement}/${dataColor}.png`;
+    } else if ((sectionVignette.classList.contains('hasGender') && sectionVignette.classList.contains('isCostume')) || sectionVignette.classList.contains('hasGender')) {
+      resultSrc = `avatar-creator/images/${section}/${currentGender}/${dataElement}.png`;
+    } else if (sectionVignetteColor) {
+      resultSrc = `avatar-creator/images/${section}/${dataElement}/${dataColor}.png`;
+    } else {
+      resultSrc = `avatar-creator/images/${section}/${dataElement}.png`;
+    }
+    updateResult(resultSrc, resultSrcBack, section);
+    saveLocalStorage(resultSrc, resultSrcBack, section);
+  }
+
+  function updateResult(resultSrc, resultSrcBack, section) {
+    let result     = document.getElementById('Result_' + section);
+    let resultBack = document.getElementById('Result_' + section + '_Back');
+    if (section == "Hat-Costumes") {
+      result     = document.getElementById('Result_Hat');
+      resultBack = document.getElementById('Result_Hat_Back');
+    }
+      /*--- Update Result ---*/
+    result.setAttribute('src', resultSrc);
+    if (document.querySelector('#Vignettes-' + section).classList.contains('hasBack')) {
+      resultBack.setAttribute('src', resultSrcBack);
+    }
+  }
+
+  function saveLocalStorage(resultSrc, resultSrcBack, section) {
+    if (!document.querySelector('#Vignettes-' + section).classList.contains('isCostume')) {
+      localStorage.setItem(`Storage_${section}`, resultSrc);
+      if (document.querySelector('#Vignettes-' + section).classList.contains('hasBack')) {
+        localStorage.setItem(`Storage_${section}_Back`, resultSrcBack);
       }
     }
   }
-
-
-  //********************************************************************************
-  //CHANGE VIGNETTE HAT-----------------------------------------------------------
-  //********************************************************************************
-  function change_hat(section) {
-    let vignettes = document.querySelectorAll('#Vignettes-' + section + ' .vignette');
-    let colors = document.querySelectorAll('#Vignettes-' + section + '-color .vignette-color');
-
-    vignettes[0].classList.add('active');
-    colors[0].classList.add('active');
-    let colorsSection = document.getElementById('Vignettes-' + section + '-color');
-    colorsSection.style.display = 'none';
-    /*Change shape*/
-    for (const vignette of vignettes) {
-      vignette.addEventListener('click', function () {
-        colorsSection.style.display = 'grid';
-
-        document.getElementById('Hair').classList.add('disable');
-        let hairSize = document.getElementById('Result_Hair').getAttribute('data-size');
-        let hairColor = document.getElementById('Result_Hair').getAttribute('data-color');
-        let hatColor = document.querySelector('#Vignettes-Hat-color .vignette-color.active').getAttribute("data-color");
-        let hatElement = this.getAttribute("data-element");
-
-        let resetHatButton = document.querySelector('#' + section + ' .reset');
-        resetHatButton.style.display = 'flex';
-
-        document.querySelector('#Vignettes-Hat .vignette.active').classList.remove('active');
-        this.classList.add('active');
-        document.getElementById('Vignettes-Hat-color').style.display = 'grid';
-
-
-
-        document.getElementById('Result_Hat').setAttribute('src', 'avatar-creator/images/Hat/' + hatElement +
-          '/Shape/' + hatColor + '.png');
-        document.getElementById('Result_Hat_Back').setAttribute('src', 'avatar-creator/images/Hat/' + hatElement +
-          '/Shape_Back/' + hatColor + '.png');
-
-        if (hairSize !== "shaved") {
-          document.getElementById('Result_Hat_Hair').setAttribute('src', 'avatar-creator/images/Hat/' + hatElement +
-            '/Hair/' + hairSize + '/' + hairColor + '.png');
-          document.getElementById('Result_Hat_Hair_Back').setAttribute('src', 'avatar-creator/images/Hat/' + hatElement +
-            '/Hair_Back/' + hairSize + '/' + hairColor + '.png');
-        } else {
-          document.getElementById('Result_Hat_Hair').setAttribute('src', "avatar-creator/UI/reset.png");
-          document.getElementById('Result_Hat_Hair_Back').setAttribute('src', "avatar-creator/UI/reset.png");
-        }
-
-
-        /*SAVE*/
-        if (!document.getElementById('Hair').classList.contains('item-save')) {
-          document.getElementById('Hair').classList.add('item-save');
-          document.getElementById('Result_Hair').setAttribute('data-src-store', document.getElementById('Result_Hair').getAttribute('src'));
-          document.getElementById('Result_Hair_Back').setAttribute('data-src-store', document.getElementById('Result_Hair_Back').getAttribute('src'));
-          document.getElementById('Result_Hair').setAttribute('src', "avatar-creator/UI/reset.png");
-          document.getElementById('Result_Hair_Back').setAttribute('src', "avatar-creator/UI/reset.png");
-        }
+    //Save Shape and Color for Costumes 
+  function saveCostums(tabCostumes, tabItemsSave) {
+    for (const costume of tabCostumes) {
+      document.getElementById('Result_' + costume).setAttribute('src', "avatar-creator/UI/reset.png");
+      let vignettesCostumes = document.querySelectorAll('#Vignettes-' + costume + ' .vignette');
+      vignettesCostumes.forEach(function (vignette) {
+        vignette.classList.remove('active');
       });
     }
-
-    /*Change color Rainbow*/
-    for (const color of colors) {
-      color.addEventListener('click', function () {
-        let hatColor = this.getAttribute("data-color");
-        let hatElement = document.querySelector('#Vignettes-Hat .vignette.active').getAttribute("data-element");
-        document.getElementById('Hair').classList.add('disable');
-        document.querySelector('#Vignettes-Hat-color .vignette-color.active').classList.remove('active');
-        this.classList.add('active');
-
-        /*Change result color*/
-        document.getElementById('Result_Hat').setAttribute('src', 'avatar-creator/images/Hat/' + hatElement +
-          '/Shape/' + hatColor + '.png');
-        document.getElementById('Result_Hat_Back').setAttribute('src', 'avatar-creator/images/Hat/' + hatElement +
-          '/Shape_Back/' + hatColor + '.png');
-
-        /*Change vignette color*/
-        for (let i = 1; i < vignettes.length + 1; i++) {
-          document.querySelector('#Vignettes-Hat .vignette[data-element="' + i + '"] img[data-vignette-item="Hat"]').setAttribute("src", "avatar-creator/images/Hat/" + i + "/Shape/" + hatColor + ".png");
-          document.querySelector('#Vignettes-Hat .vignette[data-element="' + i + '"] img[data-vignette-item="Hat_Back"]').setAttribute("src", "avatar-creator/images/Hat/" + i + "/Shape_Back/" + hatColor + ".png");
-        }
-      });
+    for (const itemSave of tabItemsSave) {
+      if (!document.getElementById(itemSave).classList.contains('item-save') && itemSave != "Hair") {
+        document.getElementById(itemSave).classList.add('item-save');
+        document.getElementById('Result_' + itemSave).setAttribute('data-src-store', document.getElementById('Result_' + itemSave).getAttribute('src'));
+        document.getElementById('Result_' + itemSave).setAttribute('src', "avatar-creator/UI/reset.png");
+      }
+      document.getElementById(itemSave).classList.add('disable');
     }
   }
-  change_hat("Hat");
-  /*--------------------------------------------------------------------------*/
+
+function changeHat(section,dataElement) {
+  if (section === "Hat-Costumes" || section === "Hat") {
+    const sectionHair  = document.getElementById('Hair');
+    const resultHair     = document.getElementById('Result_Hair');
+    const resultHairBack = document.getElementById('Result_Hair_Back');
+    let   hairSize       = resultHair.getAttribute('data-size');
+    let   hairColor      = resultHair.getAttribute('data-color');
+
+    sectionHair.classList.add('disable');
+      //save hair
+    if (!sectionHair.classList.contains('item-save')) {
+      sectionHair.classList.add('item-save');
+      resultHair.setAttribute('data-src-store', resultHair.getAttribute('src'));
+      resultHairBack.setAttribute('data-src-store', document.getElementById('Result_Hair_Back').getAttribute('src'));
+    }
+
+    if (hairSize !== "shaved") {
+      resultHair.setAttribute('src', 'avatar-creator/images/Hat/Hair/' + dataElement + '/' + hairSize + '/' + hairColor + '.png');
+      resultHairBack.setAttribute('src', 'avatar-creator/images/Hat/Hair_Back/' + dataElement + '/' + hairSize + '/' + hairColor + '.png');
+    } else {
+      resultHair.setAttribute('src', "avatar-creator/UI/reset.png");
+      resultHairBack.setAttribute('src', "avatar-creator/UI/reset.png");
+    }
+  }
+}
+
+  function changeVignette(section, dataColor) {
+    let vignettes = document.querySelectorAll('#Vignettes-' + section + ' .vignette');
+    for (let i = 1; i < vignettes.length + 1; i++) {
+      let vignetteItem = document.querySelector('#Vignettes-' + section + ' .vignette[data-element="' + i + '"] img[data-vignette-item="' + section + '"]');
+      if (document.querySelector('#Vignettes-' + section).classList.contains('hasGender')) {
+        vignetteItem.setAttribute("src", "avatar-creator/images/" + section + "/" + currentGender + '/' + i + "/" + dataColor + ".png");
+      } else if (document.querySelector('#Vignettes-' + section).classList.contains('hasBack')) {
+        if (section == "Hair") {
+          let vignetteElement = document.querySelector('#Vignettes-Hair .vignette:nth-child(' + i + ')').getAttribute("data-element");
+          let vignetteSize    = document.querySelector('#Vignettes-Hair .vignette:nth-child(' + i + ') ').getAttribute("data-size");
+          document.querySelector('#Vignettes-Hair .vignette:nth-child(' + i + ') img[data-vignette-item="Hair"]').setAttribute("src", "avatar-creator/images/Hair/Front/" + vignetteSize + "/" + vignetteElement + "/" + dataColor + ".png");
+          document.querySelector('#Vignettes-Hair .vignette:nth-child(' + i + ') img[data-vignette-item="Hair_Back"]').setAttribute("src", "avatar-creator/images/Hair/Back/" + vignetteSize + "/" + vignetteElement + "/" + dataColor + ".png");
+        } else {
+          document.querySelector('#Vignettes-' + section + ' .vignette[data-element="' + i + '"]  img[data-vignette-item="' + section + '"]').setAttribute("src", "avatar-creator/images/" + section + "/Front/" + i + "/" + dataColor + ".png");
+          document.querySelector('#Vignettes-' + section + ' .vignette[data-element="' + i + '"]  img[data-vignette-item="' + section + '_Back"]').setAttribute("src", "avatar-creator/images/" + section + "/Back/" + i + "/" + dataColor + ".png");
+        };
+      } else {
+        vignetteItem.setAttribute("src", "avatar-creator/images/" + section + "/" + i + "/" + dataColor + ".png");
+      }
+    }
+  }
+    /*--------------------------------------------------------------------------*/
   let vignettes_background = document.querySelectorAll('#Vignettes-Background .vignette');
   for (const vignette_background of vignettes_background) {
     vignette_background.addEventListener('click', function () {
@@ -333,7 +282,7 @@
     });
   }
 
-  /*couleurs*/
+    /*couleurs*/
   let vignettes_backgroundColor = document.querySelectorAll('#Vignettes-Background-color .vignette-color');
   vignettes_backgroundColor[0].classList.add('active');
   for (const vignette_backgroundColor of vignettes_backgroundColor) {
@@ -351,7 +300,7 @@
   }
 
   function blinkElement() {
-    //EYES
+      //EYES
     let eyesResult = document.querySelector('#Result_Eyes');
     setInterval(function () {
       if (eyesResult.getAttribute('src') == 'avatar-creator/images/Eyes/1.png') {
@@ -375,15 +324,15 @@
           mouthResult.setAttribute('src', 'avatar-creator/images/Mouth/1.png');
         }, 1000);
       }
-    }, getRandomTime()*5);
+    }, getRandomTime() * 5);
   }
 
-//Random time
+    //Random time
   function getRandomTime() {
     return Math.floor(Math.random() * 10000) + 5000;
   }
 
-  // Appeler la fonction blinkElement
+    // Appeler la fonction blinkElement
   blinkElement();
 
 
@@ -408,11 +357,10 @@
         for (const costumeItem of tabCostumes) {
           reset_costume(costumeItem, tabItemsSave, tabCostumes);
         }
-        //run change() for each section
+          //run change() for each section
         for (const section of data.sections) {
-          change(section.sectionName, section.hasBack, section.isCostume, section.id_color, section.hasGender, tabCostumes, tabItemsSave);
+          globalChange(section.sectionName, tabCostumes, tabItemsSave);
         }
-
       });
   }
   loadConfig();

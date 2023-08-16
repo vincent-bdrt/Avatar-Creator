@@ -18,7 +18,7 @@ require_once 'functions.php';
 
         gtag('config', 'G-HJS2YNWC42');
     </script>
-    
+
     <title>PinkNose - Avatar gratuit 100% personnalisable</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -67,23 +67,19 @@ require_once 'functions.php';
             </li>
             <li class="menu-item">
                 <button class="menu-button morphology-btn"> <i class="fa fa-random" aria-hidden="true"></i>
-                    Morphology</button>
+                    Ma Morphologie</button>
             </li>
         </ul>
     </nav>
     <header>
         <nav id="sidebar">
-            <button class="btn option" id="Download">
-                <i class="fa fa-download" aria-hidden="true"></i>
-                <span>Téléchargement</span>
-            </button>
             <button class="btn option" id="Random">
                 <i class="fas fa-dice"></i>
                 <span>Aléatoire</span>
             </button>
             <button class="btn option" id="Morphology-btn">
                 <i class="fa fa-random" aria-hidden="true"></i>
-                <span>Morphologie</span>
+                <span>Ma Morphologie</span>
             </button>
 
             <button class="btn option" id="Reset">
@@ -116,21 +112,26 @@ require_once 'functions.php';
                     <p class="version"><?=$version?></p>
                 </div>
                 <div id="Right-Section">
-                    <div id="Categories">
-                    <nav class="nav-container">
-        <div class="scroll-arrow left-arrow"> <img src ="avatar-creator/UI/Icon/left-arrow.svg" alt="arrow-left">
+                    <div id="Top-right-Section">
+                        <div id="Categories">
+                            <nav class="nav-container">
+                                <div class="scroll-arrow left-arrow"> <img src="avatar-creator/UI/Icon/left-arrow.svg"
+                                        alt="arrow-left">
 
-        </div>
-        <div class="scroll-container">
-            <ul>
-                                <?php generateNavigation(); ?>
-                                </ul>
-        </div>
-        <div class="scroll-arrow right-arrow">
-            <img src ="avatar-creator/UI/Icon/right-arrow.svg" alt="arrow-right">
-        </div>
-    </nav>
+                                </div>
+                                <div class="scroll-container">
+                                    <ul>
+                                        <?php generateNavigation(); ?>
+                                    </ul>
+                                </div>
+                                <div class="scroll-arrow right-arrow">
+                                    <img src="avatar-creator/UI/Icon/right-arrow.svg" alt="arrow-right">
+                                </div>
+                            </nav>
 
+                        </div>
+                        <button id="Download">
+                <i class="fa fa-download" aria-hidden="true"></i> <span>Mon Avatar est prêt !</span></button>
                     </div>
                     <?php 
                     include 'avatar-creator/section/Morpho.php';
@@ -147,9 +148,10 @@ require_once 'functions.php';
 
 <!--JS-->
 <script src="js/download.js"></script>
+<script src="js/reset.js"></script>
 <script src="js/global.js"></script>
 <script src="js/random.js"></script>
 <script src="js/navigation.js"></script>
-<script src="js/reset.js"></script>
+
 
 </html>

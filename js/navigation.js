@@ -92,7 +92,6 @@ categories.addEventListener('wheel', function (event) {
 
 
 function scrollNavigationSection(section) {
-    console.log(section);
     if(document.querySelector("#Vignettes-"+section+"-color")!== null || section === 'Categories' ){
 const scrollContainer = document.querySelector('#'+section+' .scroll-container');
 const leftArrow = document.querySelector('#'+section+' .left-arrow');
@@ -117,10 +116,10 @@ scrollContainer.addEventListener('scroll', function () {
 
 //Scroll left and right
 leftArrow.addEventListener('click', function () {
-    scrollContainer.scrollLeft -= 130;
+    scrollContainer.scrollLeft -= 200;
 });
 rightArrow.addEventListener('click', function () {
-    scrollContainer.scrollLeft += 130;
+    scrollContainer.scrollLeft += 200;
 });
 scrollNavigation();
 //check on resized window

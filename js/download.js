@@ -5,12 +5,14 @@
 function clicklink() {
     document.getElementById('Download').querySelector('i').classList.add('fa-download');
     document.getElementById('Download').querySelector('i').classList.remove('fa-circle-o-notch', 'fa-spin');
+    document.getElementById('Download').querySelector('span').innerHTML = 'Mon Avatar est prêt !';
     document.getElementById('Download').classList.remove('btn-success');
+
 }
-const order_result = ["Background_Back", "Background", "Hat_Back", "Hat_Hair_Back", "Hair_Back",
+const order_result = ["Background_Back", "Background", "Hat_Back", "Hair_Back",
     "Skin", "Spot", "Makeup", "Top", "Necklace", "Jacket", "Antiquity", "Christmas", "Halloween", "Medieval", "Pirate", "Neutral", "Job", "Beards", "Eyes",
     "Mouth", "Eyebrow", "Mustaches", "Glasses_Back", "Nose", "Glasses", "Earring",
-    "Hair", "Hat_Hair", "Hat"
+    "Hair", "Hat"
 ];
 
 for (let i = 0; i < order_result.length; i++) {
@@ -19,7 +21,7 @@ for (let i = 0; i < order_result.length; i++) {
     img.setAttribute('id', 'Result_' + order_result[i]);
     img.setAttribute('src', 'avatar-creator/UI/reset.png');
     img.setAttribute('loading', 'lazy');
-    img.setAttribute('alt', order_result[i]);
+    img.setAttribute('alt', '');
 
     result_div.appendChild(img);
     document.getElementById('Result_' + order_result[i]).style.zIndex = i + 1;
@@ -77,6 +79,7 @@ defaultResult();
 document.getElementById('Download').addEventListener('click', function () {
     document.getElementById('Download').querySelector('i').classList.remove('fa-download');
     document.getElementById('Download').querySelector('i').classList.add('fa-circle-o-notch', 'fa-spin');
+    document.getElementById('Download').querySelector('span').innerHTML = 'Chargement...';
     document.getElementById('Download').classList.add('btn-success');
     const canvas = document.getElementById('Result_final');
     const ctx = canvas.getContext('2d');

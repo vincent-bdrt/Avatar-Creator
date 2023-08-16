@@ -6,10 +6,19 @@ $colors = $config['colors'];
 $navigationOrder = $config['navigationOrder'];
 $news = $config['news'];
 
+$costumes = array();
+foreach ($sections as $section) {
+    if ($section['isCostume']) {
+        array_push($costumes, $section['sectionName']);
+    }
+}
+
+
 
 function simpleSection($section)
 {
     global $colors;
+    global $costumes;
     
     $sectionName = $section['sectionName'];
     $hasZoomFace = $section['hasZoomFace'];
@@ -21,6 +30,8 @@ function simpleSection($section)
     $optionsFilter = $section['optionsFilter'];
     $hasBack = $section['hasBack'];
     $customVignette = $section['customVignette'];
+    $length_costumes = count($costumes);
+
 
     $sectionColorLength = 0;
         if (isset($colors[$id_color]["colorValues"])) {
@@ -48,7 +59,8 @@ function simpleSection($section)
         $file = glob("avatar-creator/images/$sectionName/*.png");
     }
     $countFile = count($file);
-    
+
+
    
     echo '<section id="'.$sectionName.'">';
     if ($hasDisableMessage && $hasColor) {
@@ -66,6 +78,9 @@ function simpleSection($section)
     echo '<div class="vignettes-section';
     if ($hasZoomFace) {echo ' hasZoomFace';}
     if ($hasColor) {echo ' hasColorPart';}
+    if ($hasGender) {echo ' hasGender';}
+    if ($isCostume) {echo ' isCostume';}
+    if ($hasBack) {echo ' hasBack';}
     if (empty($customVignette)) {echo ' vignette-default';} else {echo ' vignette-custom';}
 
     echo '" id="Vignettes-'.$sectionName.'" data-section="'.$sectionName.'" >';
@@ -87,6 +102,25 @@ function simpleSection($section)
                     echo '</div>';
                 }
         }
+        }else if($sectionName=="Hat-Costumes"){
+            for ($i = 0; $i <= $length_costumes; $i++){
+                $FileCostumes = glob("avatar-creator/images/$costumes[$i]/Hat/*", GLOB_ONLYDIR);
+                $CountCostumes = count($FileCostumes);
+                if($CountCostumes > 0){
+                for ($j = 1; $j <= $CountCostumes; $j++) {
+                    $File = glob("avatar-creator/images/$costumes[$i]/Hat/$j/Shape/*.png");
+                    $Count = count($File);
+                    if($Count > 0){
+                        echo '<div class="vignette" data-element="'.$j.'" data-costumes="'.$costumes[$i].'">';
+                        echo '<img loading="lazy" src="avatar-creator/UI/Icon/icon_'.$costumes[$i].'.svg" alt="Icon Costume '.$costumes[$i].'" class="costume-category">';
+                        echo '<img loading="lazy" data-vignette-item="Hat" src="avatar-creator/images/'.$costumes[$i].'/Hat/'.$j.'/Shape/1.png" alt="Avatar Vignette" style="z-index:4"> ';
+                        echo '<img loading="lazy" src="avatar-creator/UI/Base.png" alt="Avatar Vignette" style="z-index:3">';
+                        echo '<img loading="lazy" data-vignette-item="Hat_Back" src="avatar-creator/images/'.$costumes[$i].'/Hat/'.$j.'/Shape_Back/1.png" alt="Avatar Vignette" style="z-index:2">';
+                        echo '</div>';
+                    }
+                }
+                }
+            } 
         }else{
             for ($i = 1; $i <= $countFile; $i++) {
             $dirPath = "avatar-creator/images/$sectionName" . ($hasGender ? "/Men" : "") .($hasBack ? "/Front" : ""). ($hasColor ? "/$i/1.png" : "/$i.png");
