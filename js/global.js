@@ -222,8 +222,8 @@
         document.getElementById(itemSave).classList.add('item-save');
         document.getElementById('Result_' + itemSave).setAttribute('data-src-store', document.getElementById('Result_' + itemSave).getAttribute('src'));
         document.getElementById('Result_' + itemSave).setAttribute('src', "avatar-creator/UI/reset.png");
+        document.getElementById(itemSave).classList.add('disable');
       }
-      document.getElementById(itemSave).classList.add('disable');
     }
   }
 

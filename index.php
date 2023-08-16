@@ -1,5 +1,4 @@
 <?php 
-ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
 require_once 'functions.php';
 ?>
 <!doctype html>
@@ -105,7 +104,7 @@ require_once 'functions.php';
             <img src="avatar-creator/UI/background-home.png" alt="Avatar creator" class="background-home">
         </section>
         <div class="game">
-            <?php include 'avatar-creator/section/information.php'?>
+            <?php include 'avatar-creator/section/Information.php'?>
             <div class="grid-2">
                 <div id="Left-Section">
                     <?php include 'avatar-creator/result.php'?>
