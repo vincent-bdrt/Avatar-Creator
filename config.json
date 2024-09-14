@@ -2,10 +2,10 @@
   "sections": [{
       "sectionName": "Skin",
       "hasZoomFace": false,
-      "id_color": null,
+      "id_color": 2,
       "hasReset": false,
       "hasDisableMessage": false,
-      "hasGender": true,
+      "hasGender": false,
       "optionsFilter": [],
       "isCostume": false,
       "hasBack": false,
@@ -38,22 +38,6 @@
       "isCostume": false,
       "hasBack": false,
       "customVignette": []
-    },
-    {
-      "sectionName": "Makeup",
-      "hasZoomFace": true,
-      "id_color": null,
-      "hasReset": true,
-      "hasDisableMessage": false,
-      "hasGender": false,
-      "optionsFilter": [],
-      "isCostume": false,
-      "hasBack": false,
-      "customVignette": [
-        "Base",
-        "Makeup",
-        "Eyes"
-      ]
     },
     {
       "sectionName": "Spot",
@@ -95,7 +79,7 @@
     },
     {
       "sectionName": "Earring",
-      "hasZoomFace": false,
+      "hasZoomFace": true,
       "id_color": 0,
       "hasReset": true,
       "hasDisableMessage": false,
@@ -318,6 +302,18 @@
       "isCostume": true,
       "hasBack": false,
       "customVignette": []
+    },
+    {
+      "sectionName": "Background",
+      "hasZoomFace": false,
+      "id_color": 0,
+      "hasReset": true,
+      "hasDisableMessage": false,
+      "hasGender": false,
+      "optionsFilter": [],
+      "isCostume": false,
+      "hasBack": false,
+      "customVignette": []
     }
   ],
   "colors": [{
@@ -329,12 +325,17 @@
       "id": 1,
       "name": "Hair",
       "colorValues": ["#715B48", "#8B6D53", "#A3764F", "#D29056", "#D5A186", "#C8A380", "#C8B380", "#E3C06C", "#E6D19E", "#DFD2B5", "#F7F4ED", "#BEBBB3", "#928F89", "#6F6C63", "#4F4E4A", "#9B99E0", "#6260AF", "#9151BC", "#B57476", "#A5595B", "#BF97BC", "#DEB4DB", "#F5E3ED", "#A16BAF", "#98839D", "#4C988D", "#79C9BD", "#59A24C", "#80AA79", "#9DC795"]
+    },
+    {
+      "id":2,
+      "name":"Skin",
+      "colorValues":["#eed8c5","#d1b39a","#bd9574","#ba875e","#9b6e4a","#775235","#68513f","#64554b","#e9dbd0","#d0c9b2","#b7c2b1","#a7b9d1","#a7aeaf","#aed3dd","#8d9f95"]
     }
   ],
-  "version": "22-07-2023 - Better Responsive",
-  "navigationOrder": ["Skin", "Eyes", "Eyebrow", "Nose", "Mouth", "Spot", "Hair", ["Beards-Mustaches", "Mustaches", "Beards"], "Makeup",
-    ["Accessory", "Glasses", "Necklace", "Earring"], "Top", "Jacket","Hat", ["Costumes", "Christmas", "Halloween", "Job", "Medieval", "Antiquity", "Pirate","Neutral"],"Hat-Costumes", "Background"
+  "version": "05-09-2024 - Optimisation JS",
+  "navigationOrder": ["Skin", "Eyes", "Eyebrow", "Nose", "Mouth", "Spot", "Hair", ["Beards-Mustaches", "Mustaches", "Beards"],
+    ["Accessory", "Glasses", "Necklace", "Earring"], "Top", "Jacket", ["Costumes", "Christmas", "Halloween", "Job", "Medieval", "Antiquity", "Pirate","Neutral"], "Background"
   ],
-  "news": ["Jacket", "Top", "Hair", "Costumes", "Pirate"]
+  "news": ["Hair"]
 
 }

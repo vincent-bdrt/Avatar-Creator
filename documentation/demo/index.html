@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creation d'avatar - Demo tutoriel</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="demo.css">
+</head>
+
+<body>
+    <div class="grid-2">
+        <div id="leftSection"> 
+            <div class="informations">
+                <h1>Demo - Avatar Creator HTML, CSS, Javascript</h1>
+                <a href="/documentation" id="documentation" target="_blank">Documentation</a>
+                
+            </div>
+            
+            <div class="result">
+                <canvas id="resultFinal" width="1000" height="1000"></canvas>
+                <img src="sections/Skin/men/1.png" alt="Avatar" id="resultSkin">
+                <img src="sections/Hair/1/black.png" alt="Avatar" id="resultHair">
+                <img src="sections/Eyes/1.png" alt="Avatar" id="resultEyes">
+                <img src="sections/Mouth/1.png" alt="Avatar" id="resultMouth">
+                <img src="sections/Nose/1.png" alt="Avatar" id="resultNose">
+                <img src="sections/Top/men/1/red.png" alt="Avatar" id="resultTop">
+            </div>
+           
+        </div>
+        
+        <div id="rightSection">
+
+            <!--Header de la section de droite-->
+            <header>
+                <nav id="categories">
+                    <ul>
+                        <li><button type="button" data-target="Skin" class="active">Peau</button></li>
+                        <li><button type="button" data-target="Mouth">Bouche</button></li>
+                        <li><button type="button" data-target="Nose">Nez</button></li>
+                        <li><button type="button" data-target="Eyes">Regard</button></li>
+                        <li><button type="button" data-target="Hair">Cheveux</button></li>
+                        <li><button type="button" data-target="Top">Vetement</button></li>
+                    </ul>
+                </nav>
+                <!--Bouton de téléchargement-->
+                <button id="download">
+                    Mon Avatar est prêt !
+                </button>
+            </header>
+
+            <main>
+                <!--Sections-->
+
+                <section id="Skin" class="active">
+                    <ul class="vignettes">
+                        <li class="vignette active" data-element="men"><img src="sections/Skin/men/1.png"
+                                alt="Hair - 1"></li>
+                        <li class="vignette" data-element="women"><img src="sections/Skin/women/1.png" alt="Hair - 2">
+                        </li>
+                    </ul>
+                    <ul class="colors">
+                        <li class="color active" data-color="1" style="background-color:#eed8c5"></li>
+                        <li class="color" data-color="2" style="background-color:#d1b39a"></li>
+                        <li class="color" data-color="3" style="background-color:#bd9574"></li>
+                        <li class="color" data-color="4" style="background-color:#ba875e"></li>
+                        <li class="color" data-color="5" style="background-color:#9b6e4a"></li>
+                        <li class="color" data-color="6" style="background-color:#775235"></li>
+                        <li class="color" data-color="7" style="background-color:#68513f"></li>
+                        <li class="color" data-color="8" style="background-color:#64554b"></li>
+                    </ul>
+                </section>
+
+
+                <section id="Mouth">
+                    <ul class="vignettes">
+                        <li class="vignette active" data-element="1"><img src="sections/Mouth/1.png" alt="Mouth - 1">
+                        </li>
+                        <li class="vignette" data-element="2"><img src="sections/Mouth/2.png" alt="Mouth - 2"></li>
+                        <li class="vignette" data-element="3"><img src="sections/Mouth/3.png" alt="Mouth - 3"></li>
+                        <li class="vignette" data-element="4"><img src="sections/Mouth/4.png" alt="Mouth - 4"></li>
+                        <li class="vignette" data-element="5"><img src="sections/Mouth/5.png" alt="Mouth - 5"></li>
+                        <li class="vignette" data-element="6"><img src="sections/Mouth/6.png" alt="Mouth - 6"></li>
+                        <li class="vignette" data-element="7"><img src="sections/Mouth/7.png" alt="Mouth - 7"></li>
+                        <li class="vignette" data-element="8"><img src="sections/Mouth/8.png" alt="Mouth - 8"></li>
+                    </ul>
+                </section>
+
+                <section id="Nose">
+                    <ul class="vignettes">
+                        <li class="vignette active" data-element="1"><img src="sections/Nose/1.png" alt="Nose - 1"></li>
+                        <li class="vignette" data-element="2"><img src="sections/Nose/2.png" alt="Nose - 2"></li>
+                        <li class="vignette" data-element="3"><img src="sections/Nose/3.png" alt="Nose - 3"></li>
+                        <li class="vignette" data-element="4"><img src="sections/Nose/4.png" alt="Nose - 4"></li>
+                        <li class="vignette" data-element="5"><img src="sections/Nose/5.png" alt="Nose - 5"></li>
+                        <li class="vignette" data-element="6"><img src="sections/Nose/6.png" alt="Nose - 6"></li>
+                        <li class="vignette" data-element="7"><img src="sections/Nose/7.png" alt="Nose - 7"></li>
+                        <li class="vignette" data-element="8"><img src="sections/Nose/8.png" alt="Nose - 8"></li>
+                    </ul>
+                </section>
+
+
+                <section id="Eyes">
+                    <ul class="vignettes">
+                        <li class="vignette active" data-element="1"><img src="sections/Eyes/1.png" alt="Eyes - 1"></li>
+                        <li class="vignette" data-element="2"><img src="sections/Eyes/2.png" alt="Eyes - 2"></li>
+                        <li class="vignette" data-element="3"><img src="sections/Eyes/3.png" alt="Eyes - 3"></li>
+                        <li class="vignette" data-element="4"><img src="sections/Eyes/4.png" alt="Eyes - 4"></li>
+                        <li class="vignette" data-element="5"><img src="sections/Eyes/5.png" alt="Eyes - 5"></li>
+                        <li class="vignette" data-element="6"><img src="sections/Eyes/6.png" alt="Eyes - 6"></li>
+                        <li class="vignette" data-element="7"><img src="sections/Eyes/7.png" alt="Eyes - 7"></li>
+                        <li class="vignette" data-element="8"><img src="sections/Eyes/8.png" alt="Eyes - 8"></li>
+                        <li class="vignette" data-element="9"><img src="sections/Eyes/9.png" alt="Eyes - 9"></li>
+                        <li class="vignette" data-element="10"><img src="sections/Eyes/10.png" alt="Eyes - 10"></li>
+                    </ul>
+                </section>
+
+
+                <section id="Hair">
+                    <ul class="vignettes">
+                        <li class="vignette active" data-element="1"><img src="sections/Hair/1/black.png"
+                                alt="Hair - 1"></li>
+                        <li class="vignette" data-element="2"><img src="sections/Hair/2/black.png" alt="Hair - 2"></li>
+                        <li class="vignette" data-element="3"><img src="sections/Hair/3/black.png" alt="Hair - 3"></li>
+                        <li class="vignette" data-element="4"><img src="sections/Hair/4/black.png" alt="Hair - 4"></li>
+                        <li class="vignette" data-element="5"><img src="sections/Hair/5/black.png" alt="Hair - 5"></li>
+                        <li class="vignette" data-element="6"><img src="sections/Hair/6/black.png" alt="Hair - 6"></li>
+                        <li class="vignette" data-element="7"><img src="sections/Hair/7/black.png" alt="Hair - 7"></li>
+                        <li class="vignette" data-element="8"><img src="sections/Hair/8/black.png" alt="Hair - 8"></li>
+                        <li class="vignette" data-element="9"><img src="sections/Hair/9/black.png" alt="Hair - 9"></li>
+                        <li class="vignette" data-element="10"><img src="sections/Hair/10/black.png" alt="Hair - 10">
+                        </li>
+                    </ul>
+                    <ul class="colors">
+                        <li class="color active" data-color="black" style="background-color: #000000;"></li>
+                        <li class="color" data-color="darkbrown" style="background-color: #373018;"></li>
+                        <li class="color" data-color="brown" style="background-color: #7e623e;"></li>
+                        <li class="color" data-color="darkred" style="background-color: #a9612e;"></li>
+                        <li class="color" data-color="ginger" style="background-color: #db792e;"></li>
+                        <li class="color" data-color="blond" style="background-color: #dede7e;"></li>
+                        <li class="color" data-color="gray" style="background-color: #888888;"></li>
+                        <li class="color" data-color="white" style="background-color: #ededed;"></li>
+                    </ul>
+                </section>
+                <section id="Top">
+                    <ul class="vignettes">
+                        <li class="vignette active" data-element="1"><img src="sections/Top/men/1/red.png"
+                                alt="Hair - 1"></li>
+                        <li class="vignette" data-element="2"><img src="sections/Top/men/2/red.png" alt="Hair - 2"></li>
+                        <li class="vignette" data-element="3"><img src="sections/Top/men/3/red.png" alt="Hair - 3"></li>
+                        <li class="vignette" data-element="4"><img src="sections/Top/men/4/red.png" alt="Hair - 4"></li>
+                        <li class="vignette" data-element="5"><img src="sections/Top/men/5/red.png" alt="Hair - 5"></li>
+                        <li class="vignette" data-element="6"><img src="sections/Top/men/6/red.png" alt="Hair - 6"></li>
+                    </ul>
+                    <ul class="colors">
+                        <li class="color" data-color="black" style="background-color: #000000;"></li>
+                        <li class="color" data-color="grey" style="background-color: #888888;"></li>
+                        <li class="color" data-color="white" style="background-color: #ffffff;"></li>
+                        <li class="color active" data-color="red" style="background-color: #ff0000;"></li>
+                        <li class="color" data-color="orange" style="background-color: #ff8800;"></li>
+                        <li class="color" data-color="yellow" style="background-color: #ffff00;"></li>
+                        <li class="color" data-color="green" style="background-color: #44ff44;"></li>
+                        <li class="color" data-color="blue" style="background-color: #0000ff;"></li>
+                        <li class="color" data-color="purple" style="background-color: #aa44aa;"></li>
+                    </ul>
+                </section>
+            </main>
+        </div>
+    </div>
+    <script src="global.js"></script>
+</body>
+
+</html>

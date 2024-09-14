@@ -2,129 +2,130 @@
 /*-----------------------------------------------------------------*/
 
 
-function clicklink() {
-    document.getElementById('Download').querySelector('i').classList.add('fa-download');
-    document.getElementById('Download').querySelector('i').classList.remove('fa-circle-o-notch', 'fa-spin');
-    document.getElementById('Download').querySelector('span').innerHTML = 'Mon Avatar est prêt !';
-    document.getElementById('Download').classList.remove('btn-success');
-
-}
-const order_result = ["Background_Back", "Background", "Hat_Back", "Hair_Back",
-    "Skin", "Spot", "Makeup", "Top", "Necklace", "Jacket", "Antiquity", "Christmas", "Halloween", "Medieval", "Pirate", "Neutral", "Job", "Beards", "Eyes",
-    "Mouth", "Eyebrow", "Mustaches", "Glasses_Back", "Nose", "Glasses", "Earring",
-    "Hair", "Hat"
+// Configuration de l'ordre d'affichage des éléments de l'avatar
+const ORDER_RESULT = [
+  "Background", "Hair_Back", "Skin", "Spot", "Top", "Necklace", "Jacket",
+  "Antiquity", "Christmas", "Halloween", "Medieval", "Pirate", "Neutral", "Job",
+  "Beards", "Eyes", "Mouth", "Eyebrow", "Mustaches", "Glasses_Back", "Nose",
+  "Glasses", "Earring", "Hair"
 ];
 
-for (let i = 0; i < order_result.length; i++) {
-    let result_div = document.querySelector('.image-result .result');
-    let img = document.createElement('img');
-    img.setAttribute('id', 'Result_' + order_result[i]);
-    img.setAttribute('src', 'avatar-creator/UI/reset.png');
-    img.setAttribute('loading', 'lazy');
-    img.setAttribute('alt', '');
+/**
+ * Met à jour l'apparence du bouton de téléchargement
+ * @param {boolean} isLoading - Indique si le chargement est en cours
+ */
+function updateDownloadButton(isLoading) {
+  const button = document.getElementById('Download');
+  const icon = button.querySelector('i');
+  const span = button.querySelector('span');
 
-    result_div.appendChild(img);
-    document.getElementById('Result_' + order_result[i]).style.zIndex = i + 1;
+  icon.classList.toggle('fa-download', !isLoading);
+  icon.classList.toggle('fa-circle-o-notch', isLoading);
+  icon.classList.toggle('fa-spin', isLoading);
+  span.textContent = isLoading ? 'Chargement...' : 'Mon Avatar est prêt !';
+  button.classList.toggle('btn-success', isLoading);
 }
-var initialLoad = false;
-function defaultResult() {
-    for (const element of order_result) {
-         //if element is in cookies
-        if (localStorage.getItem("Storage_" + element) && initialLoad == false) {
-            document.getElementById('Result_'+ element).setAttribute('src', localStorage.getItem("Storage_" + element));
-        } else {
-            switch (element) {
-                case "Skin":
-                    document.getElementById('Result_Skin').setAttribute('src', 'avatar-creator/images/Skin/Men/1.png');
-                    break;
-                case "Eyes":
-                    document.getElementById('Result_Eyes').setAttribute('src', 'avatar-creator/images/Eyes/1.png');
-                    break;
-                case "Mouth":
-                    document.getElementById('Result_Mouth').setAttribute('src', 'avatar-creator/images/Mouth/1.png');
-                    break;
-                case "Eyebrow":
-                    document.getElementById('Result_Eyebrow').setAttribute('src', 'avatar-creator/images/Eyebrow/1/1.png');
-                    break;
-                case "Nose":
-                    document.getElementById('Result_Nose').setAttribute('src', 'avatar-creator/images/Nose/1.png');
-                    break;
-                case "Makeup":
-                    document.getElementById('Result_Makeup').setAttribute('src', 'avatar-creator/images/Makeup/3.png');
-                    break;
-                case "Hair":
-                    document.getElementById('Result_Hair').setAttribute('data-color', '1');
-                    document.getElementById('Result_Hair').setAttribute('data-size', 'shaved');
-                    document.getElementById('Result_Hair').setAttribute('data-src-store', 'avatar-creator/images/Hair/Front/shaved/1/1.png');
-                    document.getElementById('Result_Hair').setAttribute('src', 'avatar-creator/images/Hair/Front/shaved/1/1.png');
-                    break;
-                case "Hair_Back":
-                    document.getElementById('Result_Hair_Back').setAttribute('data-color', '1');
-                    document.getElementById('Result_Hair_Back').setAttribute('data-size', 'shaved');
-                    document.getElementById('Result_Hair_Back').setAttribute('data-src-store', 'avatar-creator/images/Hair/Front/shaved/1/1.png');
-                    document.getElementById('Result_Hair_Back').setAttribute('src', 'avatar-creator/images/Hair/Front/shaved/1/1.png');
-                    break;
 
-                default:
-                    document.getElementById('Result_' + element).setAttribute('src', 'avatar-creator/UI/reset.png');
-                    break;
-            }
-        }
-    }
-    initialLoad = true;
+/**
+ * Crée dynamiquement les éléments de l'avatar
+ */
+function createAvatarElements() {
+  const resultDiv = document.querySelector('.image-result .result');
+  ORDER_RESULT.forEach((element, index) => {
+    const img = document.createElement('img');
+    img.id = `Result_${element}`;
+    img.src = 'images/UI/reset.png';
+    img.loading = 'lazy';
+    img.alt = '';
+    img.style.zIndex = index + 1;
+    resultDiv.appendChild(img);
+  });
 }
- 
-defaultResult();
 
-document.getElementById('Download').addEventListener('click', function () {
-    document.getElementById('Download').querySelector('i').classList.remove('fa-download');
-    document.getElementById('Download').querySelector('i').classList.add('fa-circle-o-notch', 'fa-spin');
-    document.getElementById('Download').querySelector('span').innerHTML = 'Chargement...';
-    document.getElementById('Download').classList.add('btn-success');
-    const canvas = document.getElementById('Result_final');
-    const ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+/**
+ * Initialise les éléments par défaut de l'avatar
+ */function initializeDefaultAvatar() {
+  const defaultElements = {
+    Skin: 'images/sections/Skin/1/1.png',
+    Eyes: 'images/sections/Eyes/1.png',
+    Mouth: 'images/sections/Mouth/1.png',
+    Eyebrow: 'images/sections/Eyebrow/1/1.png',
+    Nose: 'images/sections/Nose/1.png',
+    Spot: 'images/sections/Spot/11.png',
+    Hair: 'images/sections/Hair/Front/shaved/1/1.png',
+    Hair_Back: 'images/sections/Hair/Front/shaved/1/1.png'
+  };
 
-    let images = [];
-    for (const element of order_result) {
-        let image_url = document.getElementById('Result_' + element);
-        let src = image_url.getAttribute('src');
-        images.push(src);
+  ORDER_RESULT.forEach(element => {
+    const img = document.getElementById(`Result_${element}`);
+    if (localStorage.getItem(`Storage_${element}`)) {
+      img.src = localStorage.getItem(`Storage_${element}`);
+    } else if (defaultElements[element]) {
+      img.src = defaultElements[element];
+      if (element === 'Hair' || element === 'Hair_Back') {
+        img.dataset.color = '1';
+        img.dataset.size = 'shaved';
+        img.dataset.srcStore = defaultElements[element];
+      }
+    } else {
+      img.src = 'images/UI/reset.png';
     }
-    //merge all image in one
-    const mergeImages = (images) => {
-        images.forEach((image) => {
-            ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
-        });
+  });
+}
 
-        return canvas;
+/**
+ * Fusionne les images de l'avatar
+ * @returns {Promise<HTMLCanvasElement>} Canvas contenant l'image fusionnée
+ */
+async function mergeImages() {
+  const canvas = document.getElementById('Result_final');
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  for (const element of ORDER_RESULT) {
+    const img = document.getElementById(`Result_${element}`);
+    if (img.src !== 'images/UI/reset.png') {
+      await new Promise((resolve, reject) => {
+        const image = new Image();
+        image.onload = () => {
+          ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+          resolve();
+        };
+        image.onerror = reject;
+        image.src = img.src;
+      });
     }
-    //load all images
-    const loadImages = (images) => {
-        return Promise.all(images.map((image) => {
-            return new Promise((resolve, reject) => {
-                const img = new Image();
-                img.onload = () => resolve(img);
-                img.onerror = reject;
-                img.src = image;
-            });
-        }));
-    }
-    //load all images
-    loadImages(images).then((images) => {
-        //merge all images
-        const mergedImage = mergeImages(images);
-        //draw merged image
-        ctx.drawImage(mergedImage, 0, 0, canvas.width, canvas.height);
-    });
-    setTimeout(
-        function () {
-            const download_link = document.createElement('a');
-            document.body.appendChild(download_link);
-            download_link.setAttribute('href', canvas.toDataURL("image/png;base64"));
-            download_link.download = 'avatar.png';
-            // trigger download event
-            download_link.click();
-            clicklink();
-        }, 1000)
+  }
+
+  return canvas;
+}
+
+/**
+ * Télécharge l'image fusionnée
+ * @param {HTMLCanvasElement} canvas - Le canvas contenant l'image fusionnée
+ */
+function downloadMergedImage(canvas) {
+  const link = document.createElement('a');
+  link.href = canvas.toDataURL("image/png");
+  link.download = 'avatar.png';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+// Gestionnaire d'événement pour le bouton de téléchargement
+document.getElementById('Download').addEventListener('click', async function () {
+  updateDownloadButton(true);
+  try {
+    const mergedCanvas = await mergeImages();
+    downloadMergedImage(mergedCanvas);
+  } catch (error) {
+    console.error("Erreur lors de la fusion des images:", error);
+  } finally {
+    updateDownloadButton(false);
+  }
 });
+
+// Initialisation
+createAvatarElements();
+initializeDefaultAvatar();

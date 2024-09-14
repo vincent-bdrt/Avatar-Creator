@@ -1,131 +1,162 @@
 let menuPlus = document.querySelector('.menu-plus');
+let randomBtn = document.querySelector('.menu-plus .random-btn');
 let downloadBtn = document.querySelector('.menu-plus .download-btn');
 let deleteBtn = document.querySelector('.menu-plus .delete-btn');
-let randomBtn = document.querySelector('.menu-plus .random-btn');
-let morphologyBtn = document.querySelector('.menu-plus  .morphology-btn');
+let informationBtn = document.querySelector('.menu-plus .information-btn');
+
 let download = document.getElementById('Download');
 let reset = document.getElementById('Reset');
 let random = document.getElementById('Random');
-let morphology = document.getElementById('Morphology-btn');
+let information = document.getElementById('Information');
 
-document.addEventListener("contextmenu", function (event) {
+/**
+ * Affiche le menu contextuel à la position du clic droit
+ * @param {MouseEvent} event - L'événement de clic droit
+ */
+function showContextMenu(event) {
     event.preventDefault();
     menuPlus.style.display = "block";
-    menuPlus.style.top = event.pageY + "px";
-    menuPlus.style.left = event.pageX + "px";
-});
+    menuPlus.style.top = `${event.pageY}px`;
+    menuPlus.style.left = `${event.pageX}px`;
+}
 
-document.addEventListener("click", function (event) {
-    if (event.target.closest(".menu-plus")) return;
-    menuPlus.style.display = "none";
-});
+/**
+ * Cache le menu contextuel si on clique en dehors
+ * @param {MouseEvent} event - L'événement de clic
+ */
+function hideContextMenu(event) {
+    if (!event.target.closest(".menu-plus")) {
+        menuPlus.style.display = "none";
+    }
+}
 
-downloadBtn.addEventListener('click', function () {
-    download.click();
-});
-deleteBtn.addEventListener('click', function () {
-    reset.click();
-});
-randomBtn.addEventListener('click', function () {
-    random.click();
-});
-morphologyBtn.addEventListener('click', function () {
-    morphology.click();
-});
+// Gestionnaires d'événements pour le menu contextuel
+document.addEventListener("contextmenu", showContextMenu);
+document.addEventListener("click", hideContextMenu);
 
+// Associer les actions du menu contextuel aux boutons principaux
+downloadBtn.addEventListener('click', () => download.click());
+deleteBtn.addEventListener('click', () => reset.click());
+randomBtn.addEventListener('click', () => random.click());
+informationBtn.addEventListener('click', () => information.click());
 
-//Navigation
-// Sélectionner les éléments de navigation
-let buttons = document.querySelectorAll('#Categories button');
-buttons.forEach(button => {
-    button.addEventListener('click', function () {
-        const dataTarget = this.getAttribute('data-target');
+// Navigation
+const buttons = document.querySelectorAll('#Categories button');
 
+/**
+ * Gère la navigation entre les sections
+ * @param {HTMLElement} button - Le bouton cliqué
+ */
+function handleNavigation(button) {
+    const dataTarget = button.getAttribute('data-target');
+    const parentLi = button.parentNode;
+    const grandParentUl = parentLi.parentNode;
 
-        // get attribute data-target from button and add active id to it
-        let siblings = this.parentNode.parentNode.children;
-        for (const element of siblings) {
-            if (element !== this.parentNode) {
-                element.classList.remove('active');
-            }
-        }
-        if (this.parentNode.classList.contains('with_subnav')) {
-            let siblings2 = this.parentNode.parentNode.parentNode.children;
-            for (const element of siblings2) {
-                if (element !== this.parentNode.parentNode) {
-                    element.classList.remove('active');
-                }
-            }
-        }
+    // Gestion des classes actives
+    Array.from(grandParentUl.children).forEach(li => li.classList.remove('active'));
+    parentLi.classList.add('active');
 
+    if (parentLi.classList.contains('with_subnav')) {
+        grandParentUl.parentNode.classList.add('active');
+        const firstSubNavItem = parentLi.querySelector('ul li');
+        firstSubNavItem.classList.add('active');
+        const subnavTarget = firstSubNavItem.querySelector('button').getAttribute('data-target');
+        showSection(subnavTarget);
+    } else {
+        showSection(dataTarget);
+    }
 
-        this.parentNode.classList.add('active');
-        if (this.parentNode.classList.contains('with_subnav')) {
-            this.parentNode.parentNode.classList.add('active');
-            document.querySelector('.with_subnav.active ul li').classList.add('active');
-            document.querySelector('.with_subnav.active ul li button').click();
-            let subnav_target = document.querySelector('.with_subnav.active ul li button').getAttribute('data-target');
-            
-            document.querySelectorAll('#Right-Section section').forEach(element => {
-                element.style.display = 'none';
-            });
-            document.getElementById(subnav_target).style.display = 'flex';
-        } else {
-            let target = this.getAttribute('data-target');
-            document.querySelectorAll('#Right-Section section').forEach(element => {
-                element.style.display = 'none';
-            });
-            document.getElementById(target).style.display = 'flex';
-        }
-        scrollNavigationSection('Categories');
-        scrollNavigationSection(dataTarget);
+    // Défilement des sections de navigation
+    scrollNavigationSection('Categories');
+    scrollNavigationSection(dataTarget);
+}
+
+/**
+ * Affiche la section cible et cache les autres
+ * @param {string} target - L'ID de la section à afficher
+ */
+function showSection(target) {
+    document.querySelectorAll('#Right-Section section').forEach(section => {
+        section.style.display = section.id === target ? 'flex' : 'none';
     });
-});
+}
 
-//when wheel is scrolled on #Categories section , scroll to right but not to bottom
-let categories = document.getElementById('Categories');
-categories.addEventListener('wheel', function (event) {
+buttons.forEach(button => button.addEventListener('click', () => handleNavigation(button)));
+
+// Défilement horizontal pour la section #Categories
+const categories = document.getElementById('Categories');
+categories.addEventListener('wheel', event => {
     event.preventDefault();
     categories.scrollLeft += event.deltaY;
-}
-);
+});
 
-
+/**
+ * Gère le défilement de la navigation dans une section
+ * @param {string} section - L'ID de la section
+ */
 function scrollNavigationSection(section) {
-    if(document.querySelector("#Vignettes-"+section+"-color")!== null || section === 'Categories' ){
-const scrollContainer = document.querySelector('#'+section+' .scroll-container');
-const leftArrow = document.querySelector('#'+section+' .left-arrow');
-const rightArrow = document.querySelector('#'+section+' .right-arrow');
-function scrollNavigation(){
-    if (scrollContainer.scrollLeft > 0) {
-        leftArrow.classList.add('active');
-    } else {
-        leftArrow.classList.remove('active');
+    const scrollContainer = document.querySelector(`#${section} .scroll-container`);
+    const leftArrow = document.querySelector(`#${section} .left-arrow`);
+    const rightArrow = document.querySelector(`#${section} .right-arrow`);
+
+    if (!scrollContainer) return;
+
+    function updateArrows() {
+        leftArrow.classList.toggle('active', scrollContainer.scrollLeft > 0);
+        rightArrow.classList.toggle('active', scrollContainer.scrollLeft < scrollContainer.scrollWidth - scrollContainer.clientWidth);
     }
-    if (scrollContainer.scrollLeft < scrollContainer.scrollWidth - scrollContainer.clientWidth) {
-        rightArrow.classList.add('active');
-    } else {
-        rightArrow.classList.remove('active');
-    }
+
+    scrollContainer.addEventListener('scroll', updateArrows);
+    window.addEventListener('resize', updateArrows);
+
+    leftArrow.addEventListener('click', () => scrollContainer.scrollLeft -= 100);
+    rightArrow.addEventListener('click', () => scrollContainer.scrollLeft += 100);
+
+    // Fonctionnalité de déplacement par grab
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    scrollContainer.addEventListener('mousedown', e => {
+        isDown = true;
+        scrollContainer.classList.add('active');
+        startX = e.pageX - scrollContainer.offsetLeft;
+        scrollLeft = scrollContainer.scrollLeft;
+    });
+
+    scrollContainer.addEventListener('mouseleave', () => {
+        isDown = false;
+        scrollContainer.classList.remove('active');
+    });
+
+    scrollContainer.addEventListener('mouseup', () => {
+        isDown = false;
+        scrollContainer.classList.remove('active');
+    });
+
+    scrollContainer.addEventListener('mousemove', e => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - scrollContainer.offsetLeft;
+        const walk = (x - startX) * 2;
+        scrollContainer.scrollLeft = scrollLeft - walk;
+    });
+
+    updateArrows();
 }
 
-//If scrollContainer has scroll, then show left and right arrows
-scrollContainer.addEventListener('scroll', function () {
-    scrollNavigation();
-});
-
-//Scroll left and right
-leftArrow.addEventListener('click', function () {
-    scrollContainer.scrollLeft -= 200;
-});
-rightArrow.addEventListener('click', function () {
-    scrollContainer.scrollLeft += 200;
-});
-scrollNavigation();
-//check on resized window
-window.addEventListener('resize', function () {
-    scrollNavigation();
-});
-    }
-};
 scrollNavigationSection('Categories');
+
+/**
+ * Centre l'élément cliqué dans le conteneur de défilement
+ * @param {HTMLElement} element - L'élément à centrer
+ */
+function centerElement(element) {
+    const scrollContainer = element.closest('.scroll-container');
+    scrollContainer.scrollLeft = element.offsetLeft - scrollContainer.clientWidth / 2 + element.clientWidth / 2;
+}
+
+// Centrer les boutons de catégorie et les vignettes de couleur
+document.querySelectorAll('#Categories li, .vignettes-section-color .vignette-color').forEach(item => {
+    item.addEventListener('click', () => centerElement(item));
+});

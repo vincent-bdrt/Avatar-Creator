@@ -88,9 +88,7 @@ a.start {
 	line-height: 1;
 	text-transform: uppercase;
 	-webkit-text-stroke: 2px white;
-	text-stroke: 2px white;
 	-webkit-text-fill-color: transparent;
-	text-fill-color: transparent;
 	color: transparent;
 	opacity: 0.3;
 	-webkit-transition: all 300ms linear;
@@ -113,9 +111,7 @@ a.start {
 		padding: 0;
 		max-height: 0;
 		-webkit-text-stroke: transparent;
-		text-stroke: transparent;
 		-webkit-text-fill-color: white;
-		text-fill-color: white;
 		color: white;
 		content: attr(data-hover);
 		-webkit-transition: max-height 0.4s;
@@ -157,17 +153,17 @@ a.start {
 	position: relative;
 }
 
-.game {
+#Left-Section {
 	background-color: $color-lightgrey;
-	background-image: url('../avatar-creator/UI/background-white.png');
+	background-image: url("https://www.transparenttextures.com/patterns/beige-paper.png");
 	background-repeat: repeat;
+	background-size: initial;
 
 }
 
 #Right-Section{
 	padding: 0px 40px;
 	background-color: $color-black;
-	background-image: url('../avatar-creator/UI/background-black.png');
 	overflow: auto;
 	position: relative;
 	section {
@@ -262,7 +258,7 @@ a.start {
 }
 
 section.launcher {
-	background-image: url('../avatar-creator/UI/background-black.png');
+	background-image: url('../images/UI/background-black.png');
 	background-repeat: repeat;
 	background-color: $color-black;
 	margin: 0;
@@ -554,16 +550,22 @@ body.game-started .menu-plus {
 	}
 }
 
-.scroll-container{
+#Top-right-Section .scroll-container{
 	flex: 1;
 	overflow:hidden;
 	scroll-behavior: smooth;
+	cursor: grab;
+	overflow-x: auto;
+	user-select: none; 
+&.active {
+	cursor: grabbing;
+  }
 }
 
 
 #Top-right-Section{
 	display: flex;
-	gap: 10px;
+	gap: 32px;
 	padding: 16px;
 	
 	#Download{
@@ -681,7 +683,7 @@ body.game-started .menu-plus {
 				border: none;
 				z-index: 20;
 				position: relative;
-
+				
 				&.new {
 					span:after {
 						content: "New";
@@ -922,7 +924,7 @@ body.game-started .menu-plus {
 }
 
 .vignette-default .vignette img {
-	background-image: url('../avatar-creator/UI/Base.png');
+	background-image: url('../images/UI/Base.png');
 	background-size: cover;
 	background-color: white;
 }
@@ -978,6 +980,9 @@ div#Vignettes-Background div.vignette img {
 		flex: 1;
 		overflow:hidden;
 		scroll-behavior: smooth;
+		margin: 0;
+		list-style: none;
+		padding: 0;
 	}
 	span {
 		position: absolute;
@@ -1037,14 +1042,16 @@ div#Vignettes-Background div.vignette img {
 	border-radius: 0;
 	border: none;
 	background-color: white;
-	background-image: url(../avatar-creator/UI/Base.png);
+	background-image: url(../images/UI/Base.png);
 	background-size: cover;
 	transition: all ease-in-out 0.5s;
 	cursor: pointer;
 	box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
 	border-radius: 10px;
 	aspect-ratio: 1/1;
-	min-height: 300px;
+	height: 100%;
+    max-height: 300px;
+    min-height: 150px;
 	&:hover {
 		transition-duration: 150ms;
 		box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
@@ -1052,7 +1059,7 @@ div#Vignettes-Background div.vignette img {
 	}
 
 	&.Women {
-		background-image: url(../avatar-creator/UI/Base__Femme.png);
+		background-image: url(../images/UI/Base__Femme.png);
 	}
 }
 
@@ -1079,16 +1086,12 @@ div#Vignettes-Background div.vignette img {
 	transition: all ease-in-out 0.5s;
 	margin: auto;
 	padding: 20px;
-	background: $color-black;
+	background:white;
 	max-width: 800px;
 	width: 90%;
 	position: relative;
 	padding-bottom: 60px;
 	border-radius: 16px;
-	background-image: url('../avatar-creator/UI/background-carton.png');
-	background-position: center;
-	background-size: auto;
-	background-repeat: repeat;
 
 	h2 {
 		color: black;
@@ -1163,7 +1166,7 @@ div#Vignettes-Background div.vignette img {
 	li {
 		display: flex;
 		background: transparent;
-		border: white dashed 2px;
+		border: rgb(0, 0, 0) dashed 2px;
 		border-radius: 16px;
 		margin: 5px;
 		box-shadow: -1px 2px 10px 3px rgba(0, 0, 0, .3) inset;
@@ -1179,7 +1182,7 @@ div#Vignettes-Background div.vignette img {
 			text-transform: uppercase;
 			display: flex;
 			align-items: center;
-			color: white;
+			color: rgb(0, 0, 0);
 			padding: 15px;
 			position: relative;
 

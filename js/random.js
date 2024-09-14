@@ -10,7 +10,7 @@ function randomIntFromInterval(min, max) {
   function generateRandom(item) {
     const countItem = document.querySelectorAll(`#Vignettes-${item} .vignette`).length;
     const randomItem = randomIntFromInterval(1, countItem);
-    document.querySelector(`#Result_${item}`).src = `avatar-creator/images/${item}/${randomItem}.png`;
+    document.querySelector(`#Result_${item}`).src = `images/sections/${item}/${randomItem}.png`;
   }
   
   function randomize(item, chanceValue) {
@@ -32,8 +32,8 @@ function randomIntFromInterval(min, max) {
     const randomEyebrow = randomIntFromInterval(1, document.querySelectorAll('#Vignettes-Eyebrow .vignette').length);
     
     if (currentGender === "Men") {
-      const chanceMustaches = randomIntFromInterval(1, 5); 
-      const chanceBeards = randomIntFromInterval(1, 5); 
+      const chanceMustaches = randomIntFromInterval(1, 10); 
+      const chanceBeards = randomIntFromInterval(1, 10); 
       if (chanceMustaches === 1) {
         document.querySelector(`#Vignettes-Mustaches-color .vignette-color[data-color="${randomColorItem}"]`).click();
         document.querySelector(`#Vignettes-Mustaches .vignette[data-element="${randomMustaches}"]`).click();

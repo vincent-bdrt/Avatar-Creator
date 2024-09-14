@@ -34,10 +34,10 @@
   }
   #Right-Section section {
     flex-direction: column;
+    min-height: -moz-max-content;
     min-height: max-content;
   }
 }
-
 @media screen and (max-width: 768px) {
   .game {
     width: 100%;
@@ -60,21 +60,27 @@
     background-image: none;
     background-color: white;
   }
-  #Categories button {
-    padding: 1rem;
-    margin: 0;
+  #Top-right-Section {
+    padding: 0;
+    gap: 0px;
   }
-  #Categories {
+  #Top-right-Section #Categories {
     margin: 0;
+    border-radius: 0px;
+    width: 64px !important;
   }
-  #Categories ul {
+  #Top-right-Section #Categories ul {
     border-radius: 0;
     margin: 0;
   }
-  #Download {
-    width: 64px !important;
+  #Top-right-Section #Categories ul button {
+    margin: 0;
   }
-  #Download span {
+  #Top-right-Section #Download {
+    width: 64px !important;
+    border-radius: 0px;
+  }
+  #Top-right-Section #Download span {
     display: none;
   }
   #Right-Section section {
@@ -108,12 +114,15 @@
     z-index: 1;
     transition: all ease-in-out 0.3s;
     margin-bottom: 5px;
-    gap: 5px;
+    gap: 10px;
     white-space: nowrap;
     cursor: grab;
   }
+  .vignettes-section-color .scroll-container.active {
+    cursor: grabbing;
+  }
   .vignettes-section-color .scroll-container .vignette-color {
-    width: 32px;
+    min-width: 32px;
     height: 32px;
   }
   .vignettes-section-color span {
@@ -140,4 +149,7 @@
     box-shadow: none;
     transform: translate(0, 0);
   }
-}
+  #Vignettes-Hat-Costumes img.costume-category {
+    display: none;
+  }
+}/*# sourceMappingURL=responsive.css.map */

@@ -44,19 +44,19 @@ function simpleSection($section)
         }
 
     if ($hasColor && $hasGender) {
-        $file               = glob("avatar-creator/images/$sectionName/Men/*" , GLOB_ONLYDIR);
+        $file               = glob("images/sections/$sectionName/Men/*" , GLOB_ONLYDIR);
     } elseif ($hasColor && $hasBack) {
-        $file               = glob("avatar-creator/images/$sectionName/Front/*" , GLOB_ONLYDIR);
-        $fileBack           = glob("avatar-creator/images/$sectionName/Back/*" , GLOB_ONLYDIR);
+        $file               = glob("images/sections/$sectionName/Front/*" , GLOB_ONLYDIR);
+        $fileBack           = glob("images/sections/$sectionName/Back/*" , GLOB_ONLYDIR);
      } elseif ($hasBack) {
-        $file     = glob("avatar-creator/images/$sectionName/Front/*.png");
-        $fileBack = glob("avatar-creator/images/$sectionName/Back/*.png");
+        $file     = glob("images/sections/$sectionName/Front/*.png");
+        $fileBack = glob("images/sections/$sectionName/Back/*.png");
     } elseif ($hasColor) {
-        $file               = glob("avatar-creator/images/$sectionName/*" , GLOB_ONLYDIR);
+        $file               = glob("images/sections/$sectionName/*" , GLOB_ONLYDIR);
     } elseif ($hasGender) {
-        $file = glob("avatar-creator/images/$sectionName/Men/*.png");
+        $file = glob("images/sections/$sectionName/Men/*.png");
     } else {
-        $file = glob("avatar-creator/images/$sectionName/*.png");
+        $file = glob("images/sections/$sectionName/*.png");
     }
     $countFile = count($file);
 
@@ -75,7 +75,7 @@ function simpleSection($section)
         
     }
     //Vignettes
-    echo '<div class="vignettes-section';
+    echo '<ul class="vignettes-section';
     if ($hasZoomFace) {echo ' hasZoomFace';}
     if ($hasColor) {echo ' hasColorPart';}
     if ($hasGender) {echo ' hasGender';}
@@ -85,46 +85,46 @@ function simpleSection($section)
 
     echo '" id="Vignettes-'.$sectionName.'" data-section="'.$sectionName.'" >';
     if ($hasReset) {
-        echo '<div class="reset" data-reset="' . $sectionName . '"><img loading="lazy" src="avatar-creator/UI/cross.png" alt="Reset ' . $sectionName . '"> </div>';
+        echo '<li class="reset" data-reset="' . $sectionName . '"><img loading="lazy" src="images/UI/cross.png" alt="Reset ' . $sectionName . '"> </li>';
     }
 
     
         if (!empty($optionsFilter)){
             foreach ( $optionsFilter as $key => $optionsFilter_item){
-                $file = glob("avatar-creator/images/Hair/Front/".$optionsFilter_item."/*", GLOB_ONLYDIR);
+                $file = glob("images/sections/Hair/Front/".$optionsFilter_item."/*", GLOB_ONLYDIR);
                 $countFile = count($file);
                 
                 for ($j = 1; $j <= $countFile; $j++) {
-                    echo '<div class="vignette" data-element="'.$j.'" data-size="'.$optionsFilter_item.'">';
-                    echo '<img loading="lazy" data-vignette-item="Hair" src="avatar-creator/images/Hair/Front/'.$optionsFilter_item.'/'.$j.'/1.png" alt="Avatar Vignette" style="z-index:3"> ';
-                    echo '<img loading="lazy" src="avatar-creator/UI/Base.png" alt="Avatar Vignette" style="z-index:2">';
-                    echo '<img loading="lazy" data-vignette-item="Hair_Back" src="avatar-creator/images/Hair/Back/'.$optionsFilter_item.'/'.$j.'/1.png" alt="Avatar Vignette" style="z-index:1"> ';
-                    echo '</div>';
+                    echo '<li class="vignette" data-element="'.$j.'" data-size="'.$optionsFilter_item.'">';
+                    echo '<img loading="lazy" data-vignette-item="Hair" src="images/sections/Hair/Front/'.$optionsFilter_item.'/'.$j.'/1.png" alt="Avatar Vignette" style="z-index:3"> ';
+                    echo '<img loading="lazy" src="images/UI/Base.png" alt="Avatar Vignette" style="z-index:2">';
+                    echo '<img loading="lazy" data-vignette-item="Hair_Back" src="images/sections/Hair/Back/'.$optionsFilter_item.'/'.$j.'/1.png" alt="Avatar Vignette" style="z-index:1"> ';
+                    echo '</li>';
                 }
         }
         }else if($sectionName=="Hat-Costumes"){
             for ($i = 0; $i <= $length_costumes; $i++){
-                $FileCostumes = glob("avatar-creator/images/$costumes[$i]/Hat/*", GLOB_ONLYDIR);
+                $FileCostumes = glob("images/sections/$costumes[$i]/Hat/*", GLOB_ONLYDIR);
                 $CountCostumes = count($FileCostumes);
                 if($CountCostumes > 0){
                 for ($j = 1; $j <= $CountCostumes; $j++) {
-                    $File = glob("avatar-creator/images/$costumes[$i]/Hat/$j/Shape/*.png");
+                    $File = glob("images/sections/$costumes[$i]/Hat/$j/Shape/*.png");
                     $Count = count($File);
                     if($Count > 0){
-                        echo '<div class="vignette" data-element="'.$j.'" data-costumes="'.$costumes[$i].'">';
-                        echo '<img loading="lazy" src="avatar-creator/UI/Icon/icon_'.$costumes[$i].'.svg" alt="Icon Costume '.$costumes[$i].'" class="costume-category">';
-                        echo '<img loading="lazy" data-vignette-item="Hat" src="avatar-creator/images/'.$costumes[$i].'/Hat/'.$j.'/Shape/1.png" alt="Avatar Vignette" style="z-index:4"> ';
-                        echo '<img loading="lazy" src="avatar-creator/UI/Base.png" alt="Avatar Vignette" style="z-index:3">';
-                        echo '<img loading="lazy" data-vignette-item="Hat_Back" src="avatar-creator/images/'.$costumes[$i].'/Hat/'.$j.'/Shape_Back/1.png" alt="Avatar Vignette" style="z-index:2">';
-                        echo '</div>';
+                        echo '<li class="vignette" data-element="'.$j.'" data-costumes="'.$costumes[$i].'">';
+                        echo '<img loading="lazy" src="images/UI/Icon/icon_'.$costumes[$i].'.svg" alt="Icon Costume '.$costumes[$i].'" class="costume-category">';
+                        echo '<img loading="lazy" data-vignette-item="Hat" src="images/sections/'.$costumes[$i].'/Hat/'.$j.'/Shape/1.png" alt="Avatar Vignette" style="z-index:4"> ';
+                        echo '<img loading="lazy" src="images/UI/Base.png" alt="Avatar Vignette" style="z-index:3">';
+                        echo '<img loading="lazy" data-vignette-item="Hat_Back" src="images/sections/'.$costumes[$i].'/Hat/'.$j.'/Shape_Back/1.png" alt="Avatar Vignette" style="z-index:2">';
+                        echo '</li>';
                     }
                 }
                 }
             } 
         }else{
             for ($i = 1; $i <= $countFile; $i++) {
-            $dirPath = "avatar-creator/images/$sectionName" . ($hasGender ? "/Men" : "") .($hasBack ? "/Front" : ""). ($hasColor ? "/$i/1.png" : "/$i.png");
-            echo '<div class="vignette" data-element="'.$i.'">';
+            $dirPath = "images/sections/$sectionName" . ($hasGender ? "/Men" : "") .($hasBack ? "/Front" : ""). ($hasColor ? "/$i/1.png" : "/$i.png");
+            echo '<li class="vignette" data-element="'.$i.'">';
         if (empty($customVignette)) {
                 echo '<img loading="lazy" data-vignette-item="'.$sectionName.'"  alt="Avatar Vignette '.$sectionName.'"  src="'.$dirPath.'">'; 
             } else {
@@ -132,31 +132,31 @@ function simpleSection($section)
                     if ($value === $sectionName) {
                         echo '<img loading="lazy" data-vignette-item="'.$sectionName.'"  alt="Avatar Vignette '.$sectionName.'"  src="'.$dirPath.'" style="z-index:'.$key.'">';
                     } elseif ($value === $sectionName."_Back") {
-                        $dirPathBack = "avatar-creator/images/$sectionName" . ($hasGender ? "/Men" : "") .($hasBack ? "/Back" : ""). ($hasColor ? "/$i/1.png" : "/$i.png");
+                        $dirPathBack = "images/sections/$sectionName" . ($hasGender ? "/Men" : "") .($hasBack ? "/Back" : ""). ($hasColor ? "/$i/1.png" : "/$i.png");
                         echo '<img loading="lazy" data-vignette-item="'.$sectionName.'_Back"  alt="Avatar Vignette '.$sectionName.'"  src="'.$dirPathBack.'" style="z-index:'.$key.'">';
                     } elseif ($value === "Base") {
-                        echo '<img loading="lazy" data-vignette-item="' . $value . '"  alt="Avatar Vignette ' .$value . '"  src="avatar-creator/UI/Base.png" style="z-index:'.$key.'">';
+                        echo '<img loading="lazy" data-vignette-item="' . $value . '"  alt="Avatar Vignette ' .$value . '"  src="images/UI/Base.png" style="z-index:'.$key.'">';
                     } else {
-                        echo '<img loading="lazy" data-vignette-item="' . $value . '"  alt="Avatar Vignette ' .$value . '"  src="avatar-creator/images/'.$value.'/1.png" style="z-index:'.$key.'">';
+                        echo '<img loading="lazy" data-vignette-item="' . $value . '"  alt="Avatar Vignette ' .$value . '"  src="images/sections/'.$value.'/1.png" style="z-index:'.$key.'">';
                     }
                 }
             }
-            echo '</div>';
+            echo '</li>';
 
 }
     }
-    echo '</div>';
+    echo '</ul>';
     if ($hasColor) {
         echo '<div class="vignettes-section-color" id="Vignettes-' . $sectionName . '-color">
     <span><i class="fas fa-eye-dropper"></i></span>';
-    echo '<div class="scroll-arrow left-arrow"> <img src="avatar-creator/UI/Icon/left-arrow.svg" alt="arrow-left"></div>';
-    echo '<div class="scroll-container">';           
+    echo '<div class="scroll-arrow left-arrow"> <img src="images/UI/Icon/left-arrow.svg" alt="arrow-left"></div>';
+    echo '<ul class="scroll-container">';           
     
     for ($i = 0; $i < $sectionColorLength; $i++) {
-        echo '<div class="vignette-color" data-color="'. ($i + 1) .'" style="background-color:'. $colors[$id_color]["colorValues"][$i] .'"></div>';
+        echo '<li class="vignette-color" data-color="'. ($i + 1) .'" style="background-color:'. $colors[$id_color]["colorValues"][$i] .'"></li>';
     }
-    echo '</div>';
-    echo '<div class="scroll-arrow right-arrow active"> <img src="avatar-creator/UI/Icon/right-arrow.svg" alt="arrow-right"> </div>';
+    echo '</ul>';
+    echo '<div class="scroll-arrow right-arrow active"> <img src="images/UI/Icon/right-arrow.svg" alt="arrow-right"> </div>';
     echo '</div>';
 }
 echo '</section>';
@@ -172,7 +172,7 @@ function generateNavigation()
             echo '<li class="with_subnav">
                 <button type="button" id="Nav_' . $section[0] . '" data-target="' . $section[0] . '"
                 class="' . (in_array($section[0], $news) ? 'new' : '') . '">
-                    <img loading="lazy" src="avatar-creator/UI/Icon/icon_' . $section[0] . '.svg" alt="Icon ' . $section[0] . '">
+                    <img loading="lazy" src="images/UI/Icon/icon_' . $section[0] . '.svg" alt="Icon ' . $section[0] . '">
                 </button>
                 <ul>';
 
@@ -180,7 +180,7 @@ function generateNavigation()
                 echo '<li>
                     <button type="button" id="Nav_' . $section[$i] . '" data-target="' . $section[$i] . '"
                     class="' . (in_array($section[$i], $news) ? 'new' : '') . '">
-                        <img loading="lazy" src="avatar-creator/UI/Icon/icon_' . $section[$i] . '.svg" alt="Icon ' . $section[$i] . '">
+                        <img loading="lazy" src="images/UI/Icon/icon_' . $section[$i] . '.svg" alt="Icon ' . $section[$i] . '">
                     </button>
                 </li>';
             }
@@ -191,7 +191,7 @@ function generateNavigation()
             echo '<li>
                 <button type="button" id="Nav_' . $section . '" data-target="' . $section . '"
                 class="' . (in_array($section, $news) ? 'new' : '') . '">
-                    <img loading="lazy" src="avatar-creator/UI/Icon/icon_' . $section . '.svg" alt="Icon ' . $section . '">
+                    <img loading="lazy" src="images/UI/Icon/icon_' . $section . '.svg" alt="Icon ' . $section . '">
                 </button>
             </li>';
         }

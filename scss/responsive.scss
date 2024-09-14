@@ -16,7 +16,10 @@
     .nav-pill {
         padding: 0 !important;
     }
-
+    main{
+        max-height: 100dvh;
+        overflow: hidden;
+    }
     .grid-2 {
         width: 100%;
         grid-template-columns: 1fr;
@@ -75,25 +78,33 @@
         background-color: white;
     }
 
-    #Categories button {
-        padding: 1rem;
-        margin: 0;
-    }
+    #Top-right-Section {
+        padding: 0;
+        gap: 0px;
 
-    #Categories {
-        margin: 0;
-
-        ul {
-            border-radius: 0;
+        #Categories {
             margin: 0;
+            border-radius: 0px;
+            width: 64px !important;
+            ul {
+                border-radius: 0;
+                margin: 0;
+
+                button {
+                    margin: 0;
+                }
+            }
+        }
+
+        #Download {
+            width: 64px !important;
+            border-radius: 0px;
+            span {
+                display: none;
+            }
         }
     }
-#Download{
-    width: 64px !important;
-    span{
-        display: none;
-    }
-}
+
     #Right-Section section {
         flex-direction: column-reverse;
     }
@@ -127,12 +138,14 @@
             z-index: 1;
             transition: all ease-in-out 0.3s;
             margin-bottom: 5px;
-            gap: 5px;
+            gap: 10px;
             white-space: nowrap;
             cursor: grab;
-
+            &.active {
+                cursor: grabbing;
+              }
             .vignette-color {
-                width: 32px;
+                min-width: 32px;
                 height: 32px;
             }
         }
@@ -164,6 +177,8 @@
             transform: translate(0, 0);
         }
     }
-}
 
-@media screen and (max-width:600px) {}
+    #Vignettes-Hat-Costumes img.costume-category{
+        display: none;
+    }
+}
