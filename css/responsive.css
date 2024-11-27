@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap");
-/* Pauls awesome mixin */
 @media screen and (max-width: 1120px) {
   h1 {
     font-size: 45px;
@@ -12,6 +11,10 @@
   }
   .nav-pill {
     padding: 0 !important;
+  }
+  main {
+    max-height: 100dvh;
+    overflow: hidden;
   }
   .grid-2 {
     width: 100%;

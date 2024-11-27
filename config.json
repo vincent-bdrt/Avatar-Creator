@@ -332,7 +332,7 @@
       "colorValues":["#eed8c5","#d1b39a","#bd9574","#ba875e","#9b6e4a","#775235","#68513f","#64554b","#e9dbd0","#d0c9b2","#b7c2b1","#a7b9d1","#a7aeaf","#aed3dd","#8d9f95"]
     }
   ],
-  "version": "05-09-2024 - Optimisation JS",
+  "version": "17/11/2024 - Ajout de nouveaux costumes",
   "navigationOrder": ["Skin", "Eyes", "Eyebrow", "Nose", "Mouth", "Spot", "Hair", ["Beards-Mustaches", "Mustaches", "Beards"],
     ["Accessory", "Glasses", "Necklace", "Earring"], "Top", "Jacket", ["Costumes", "Christmas", "Halloween", "Job", "Medieval", "Antiquity", "Pirate","Neutral"], "Background"
   ],

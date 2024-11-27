@@ -3,8 +3,7 @@
    * Global utilities.
    *
    */
-    //VARIABLES--------------------------------------------------------------------
-  let currentGender = "Men";
+
 
     //START BUTTON-----------------------------------------------------------------
   let start = document.querySelector('.start');

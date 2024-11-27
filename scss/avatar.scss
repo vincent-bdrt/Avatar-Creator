@@ -799,7 +799,8 @@ body.game-started .menu-plus {
 		background-color: white;
 		border-radius: 16px;
 		box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
-
+		max-height: 80dvh;
+		max-width: 80dvh;
 		&:after {
 			content: "";
 			display: block;

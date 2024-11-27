@@ -1,6 +1,7 @@
 //DOWNLOAD CODE FOR MERGING IMAGES AND DOWNLOADING THEM AS PNG FILE 
 /*-----------------------------------------------------------------*/
-
+    //VARIABLES--------------------------------------------------------------------
+    let currentGender = "Men";
 
 // Configuration de l'ordre d'affichage des éléments de l'avatar
 const ORDER_RESULT = [
@@ -55,6 +56,9 @@ function createAvatarElements() {
     Hair: 'images/sections/Hair/Front/shaved/1/1.png',
     Hair_Back: 'images/sections/Hair/Front/shaved/1/1.png'
   };
+  if(currentGender == "Women"){
+    defaultElements.Skin = 'images/sections/Skin/2/1.png';
+  }
 
   ORDER_RESULT.forEach(element => {
     const img = document.getElementById(`Result_${element}`);
