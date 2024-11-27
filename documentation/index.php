@@ -14,6 +14,7 @@
     <header>
         <section class="top-header">
             <div class="container">
+                <p>La documentation est en cours de redaction, certaines informations sont manquantes</p>
                 <div class="darkmode"></div>
                 <div class="swith-langue"></div>
             </div>
@@ -30,34 +31,21 @@
 
 
                     <h2 id="#Introduction">Introduction</h2>
-                    <p>Bienvenue dans ce tutoriel passionnant où nous plongerons ensemble dans le monde captivant de la
-                        création d'avatars en utilisant les langages de programmation web populaires que sont
-                        JavaScript,
-                        HTML et CSS. Si vous avez déjà rêvé de donner vie à des personnages uniques et personnalisables,
-                        alors vous êtes au bon endroit !
+                    <p>Bienvenue dans ce tutoriel où nous allons apprendre à créer des avatars en utilisant JavaScript,
+                        étape par étape comment construire un jeu d'avatar interactif.
                         <br>
                         <br>
-                        Que vous soyez un débutant cherchant à améliorer vos compétences en développement web ou un
-                        passionné de jeux souhaitant créer une expérience interactive et divertissante, ce guide étape
-                        par
-                        étape vous conduira à travers le processus de construction d'un jeu d'avatar interactif et
-                        visuellement attrayant.
-                        <br>
-                        <br>
-                        Au cours de ce tutoriel, nous explorerons les fondamentaux du développement web, en mettant
-                        l'accent
-                        sur l'intégration harmonieuse de JavaScript pour la logique dynamique, HTML pour la structure de
-                        la
-                        page, et CSS pour la mise en forme esthétique. Vous découvrirez comment permettre aux
-                        utilisateurs
-                        de personnaliser leurs avatars, de choisir parmi une variété d'options et de créer des créatures
-                        virtuelles uniques.</p>
+                        Nous allons couvrir les bases du développement web, en utilisant JavaScript pour la logique,
+                        HTML pour la structure de la page, et CSS pour le style. Vous apprendrez à permettre aux
+                        utilisateurs de personnaliser leurs avatars avec différentes options pour créer des personnages
+                        uniques.
+                    </p>
 
                     <hr>
 
                     <h2 id="Prerequis">Prérequis</h2>
                     <p>
-                        Avant de plonger dans la création passionnante de votre jeu d'avatar en JavaScript, HTML et CSS,
+                        Avant de plonger dans la création de votre jeu d'avatar en JavaScript, HTML et CSS,
                         assurez-vous d'avoir les éléments suivants en place :
                     </p>
                     <h3 id="editeur">
@@ -67,7 +55,8 @@
                         Assurez-vous d'avoir un éditeur de code installé sur votre machine. Nous recommandons
                         l'utilisation de Visual Studio Code, un éditeur puissant et convivial largement utilisé par les
                         développeurs web. Si vous n'avez pas déjà installé Visual Studio Code, vous pouvez le
-                        télécharger à partir du site officiel.
+                        télécharger à partir du <a href="https://code.visualstudio.com/Download" target="_blank">site
+                            officiel</a>.
                     </p>
                     <h3 id="notions">
                         Notions de base en HTML, CSS et JavaScript
@@ -76,8 +65,10 @@
                     <p>
                         Ce tutoriel suppose une compréhension de base des langages de balisage HTML, des feuilles de
                         style CSS pour la mise en forme, et du langage de programmation JavaScript pour la logique
-                        dynamique. Si vous n'êtes pas familier avec ces concepts, nous vous recommandons de passer en
-                        revue les bases avant de poursuivre. Il existe de nombreuses ressources en ligne pour vous aider
+                        dynamique. Si vous n'êtes pas familier avec ces concepts, nous <strong>vous recommandons de
+                            passer en
+                            revue les bases avant de poursuivre</strong>. Il existe de nombreuses ressources en ligne
+                        pour vous aider
                         à acquérir ces compétences, et une connaissance préalable facilitera grandement votre expérience
                         avec ce tutoriel.
                     </p>
@@ -119,14 +110,15 @@
                         <br>
                         <br>
                         Pour faciliter la compréhension de la structure de notre dossier, nous allons créer des
-                        sous-dossiers dans le dossier avatar-creator pour chaque catégorie d'avatar. Dans notre cas, nous
+                        sous-dossiers dans le dossier avatar-creator pour chaque catégorie d'avatar. Dans notre cas,
+                        nous
                         aurons des sous-dossiers pour les coiffures, les accessoires, les vêtements, les yeux, les
                         sourcils, les bouches, les nez et les oreilles. Nous aurons également un sous-dossier pour les
                         images de base, qui contiendra les images de base pour les avatars masculins et féminins.
                         <br>
                         <br>
                         Notre structure de dossiers ressemblera à ceci :
-                        <pre class="tree">
+                    <pre class="tree">
 📦avatar-creator
  ┣ 📂sections
  ┃ ┣ 📂Eyes
@@ -165,18 +157,18 @@
  ┣ 📜reset.css
  ┗ 📜style.css
                         </pre>
-                        En regle général on utilise des noms de dossiers en anglais. Cela permet de faciliter la
-                        compréhension du code par les autres développeurs. <br>
-                        <br>
-                         Nous allons également créer un fichier reset.css qui contiendra
-                        les styles de réinitialisation de notre page.
-                        <br><br>
-                        Le dossier UI contiendra les éléments de l'interface utilisateur, tels que des icones ou des
-                        images. <br>
+                    En regle général on utilise des noms de dossiers en anglais. Cela permet de faciliter la
+                    compréhension du code par les autres développeurs. <br>
+                    <br>
+                    Nous allons également créer un fichier reset.css qui contiendra
+                    les styles de réinitialisation de notre page.
+                    <br><br>
+                    Le dossier UI contiendra les éléments de l'interface utilisateur, tels que des icones ou des
+                    images. <br>
 
-                        Pour ce qui est des sections, on retrouve la même structure de dossiers. Chaque section
-                        [nom de la section] avec une majuscule puis [option] puis [couleur.png/variation.png]. <br>
-                        <br>
+                    Pour ce qui est des sections, on retrouve la même structure de dossiers. Chaque section
+                    [nom de la section] avec une majuscule puis [option] puis [couleur.png/variation.png]. <br>
+                    <br>
 
 
                     </p>
@@ -189,13 +181,13 @@
                         La première étape de la création de votre jeu d'avatar consiste à créer un fichier HTML. C'est
                         dans ce fichier que nous définirons la structure de la page et que nous inclurons les éléments
                         nécessaires à l'interaction avec l'utilisateur. Pour commencer, ouvrez le fichier index.html.
-                        <div class="code">
-                            <div class="informations">
-                                <span class="HTML language">HTML</span>
-                                <span class="file">index.html</span>
-                                <span class="copy"><i class="fa fa-copy"></i> Copier le code </span>
-                            </div>
-                            <pre>
+                    <div class="code">
+                        <div class="informations">
+                            <span class="HTML language">HTML</span>
+                            <span class="file">index.html</span>
+                            <span class="copy"><i class="fa fa-copy"></i> Copier le code </span>
+                        </div>
+                        <pre>
                             <code class="language-html">
 &lt;!DOCTYPE html&gt;
 &lt;html lang="fr"&gt;
@@ -209,7 +201,7 @@
 &lt;/html&gt;
                     </code>
                 </pre>
-                        </div>
+                    </div>
                     </p>
 
                     <hr>
@@ -218,13 +210,13 @@
                         principales : une section pour afficher le résultat final de l'avatar personnalisé et une
                         section pour la sélection des différentes options. De plus, nous inclurons un en-tête (header)
                         qui contiendra la navigation et un bouton de téléchargement.
-                        <div class="code">
-                            <div class="informations">
-                                <span class="HTML language">HTML</span>
-                                <span class="file">index.html</span>
-                                <span class="copy"><i class="fa fa-copy"></i> Copier le code </span>
-                            </div>
-                            <pre>
+                    <div class="code">
+                        <div class="informations">
+                            <span class="HTML language">HTML</span>
+                            <span class="file">index.html</span>
+                            <span class="copy"><i class="fa fa-copy"></i> Copier le code </span>
+                        </div>
+                        <pre>
                             <code class="language-html">
 &lt;body&gt;
     &lt;div class="grid-2"&gt;
@@ -251,27 +243,27 @@
 &lt;/body&gt;
                     </code>
                 </pre>
-                        </div>
-                        <p> Dans la section de gauche, nous allons inclure un canvas pour afficher le résultat final de
-                            l'avatar personnalisé. Nous allons également inclure des images pour chaque option
-                            d'avatar. Ces images seront utilisées pour afficher les options sélectionnées par
-                            l'utilisateur. Ces images sont les choix par défaut de l'utilisateur.
-                            Lorsque l'utilisateur sélectionne une option, nous allons mettre à jour l'image. Par
-                            exemple, si l'utilisateur sélectionne une option de cheveux, nous allons mettre à jour
-                            l'image des cheveux pour afficher l'option sélectionnée.
+                    </div>
+                    <p> Dans la section de gauche, nous allons inclure un canvas pour afficher le résultat final de
+                        l'avatar personnalisé. Nous allons également inclure des images pour chaque option
+                        d'avatar. Ces images seront utilisées pour afficher les options sélectionnées par
+                        l'utilisateur. Ces images sont les choix par défaut de l'utilisateur.
+                        Lorsque l'utilisateur sélectionne une option, nous allons mettre à jour l'image. Par
+                        exemple, si l'utilisateur sélectionne une option de cheveux, nous allons mettre à jour
+                        l'image des cheveux pour afficher l'option sélectionnée.
 
 
-                        </p>
-                        <div class="note">
-                            Avant de plonger dans la complexité du développement de votre jeu d'avatar, nous allons
-                            commencer par travailler avec des éléments simples. Cette approche nous permettra de bien
-                            comprendre les bases et de construire progressivement vers des concepts plus avancés.
+                    </p>
+                    <div class="note">
+                        Avant de plonger dans la complexité du développement de votre jeu d'avatar, nous allons
+                        commencer par travailler avec des éléments simples. Cette approche nous permettra de bien
+                        comprendre les bases et de construire progressivement vers des concepts plus avancés.
 
-                            Dans cette première étape, nous allons créer des éléments de base pour l'affichage du
-                            résultat
-                            final de l'avatar et la sélection des options. Au fil du tutoriel, nous évoluerons vers des
-                            méthodes plus avancées pour rendre votre code plus modulaire, maintenable et extensible.
-                        </div>
+                        Dans cette première étape, nous allons créer des éléments de base pour l'affichage du
+                        résultat
+                        final de l'avatar et la sélection des options. Au fil du tutoriel, nous évoluerons vers des
+                        méthodes plus avancées pour rendre votre code plus modulaire, maintenable et extensible.
+                    </div>
                     </p>
                     <hr>
                     <h3>Navigation</h3>
@@ -281,13 +273,13 @@
                         permettront de changer dynamiquement le contenu de la section de sélection d'options.
                     </p>
                     <p>
-                        <div class="code">
-                            <div class="informations">
-                                <span class="HTML language">HTML</span>
-                                <span class="file">index.html</span>
-                                <span class="copy"><i class="fa fa-copy"></i> Copier le code </span>
-                            </div>
-                            <pre>
+                    <div class="code">
+                        <div class="informations">
+                            <span class="HTML language">HTML</span>
+                            <span class="file">index.html</span>
+                            <span class="copy"><i class="fa fa-copy"></i> Copier le code </span>
+                        </div>
+                        <pre>
                             <code class="language-html">
 &lt;!--Header de la section de droite--&gt;
 &lt;header&gt;
@@ -304,7 +296,7 @@
 &lt;/header&gt;
                             </code>
                             </pre>
-                        </div>
+                    </div>
                     </p>
                     <p>
                         Nous allons également inclure un bouton de téléchargement dans la section de la peau pour
@@ -566,13 +558,13 @@
                         Créez un fichier CSS et ajoutez le lien vers ce fichier dans la section head de votre
                         document HTML.
 
-                        <div class="code">
-                            <div class="informations">
-                                <span class="HTML language">HTML</span>
-                                <span class="file">index.html</span>
-                                <span class="copy"><i class="fa fa-copy"></i> Copier le code </span>
-                            </div>
-                            <pre>
+                    <div class="code">
+                        <div class="informations">
+                            <span class="HTML language">HTML</span>
+                            <span class="file">index.html</span>
+                            <span class="copy"><i class="fa fa-copy"></i> Copier le code </span>
+                        </div>
+                        <pre>
                             <code class="language-html">
 &lt;head&gt;
     &lt;meta charset="UTF-8"&gt;
@@ -582,7 +574,7 @@
 &lt;/head&gt;
                     </code>
                 </pre>
-                        </div>
+                    </div>
 
                     </p>
                     <p>
@@ -597,13 +589,13 @@
                         <br>
                         <br>
                         Ajoutez le code suivant dans votre fichier CSS.
-                        <div class="code">
-                            <div class="informations">
-                                <span class="HTML language">HTML</span>
-                                <span class="file">index.html</span>
-                                <span class="copy"><i class="fa fa-copy"></i> Copier le code </span>
-                            </div>
-                            <pre>
+                    <div class="code">
+                        <div class="informations">
+                            <span class="HTML language">HTML</span>
+                            <span class="file">index.html</span>
+                            <span class="copy"><i class="fa fa-copy"></i> Copier le code </span>
+                        </div>
+                        <pre>
                             <code class="language-html">
 &lt;head&gt;
     &lt;meta charset="UTF-8"&gt;
@@ -614,14 +606,14 @@
 &lt;/head&gt;
                     </code>
                 </pre>
+                    </div>
+                    <div class="code">
+                        <div class="informations">
+                            <span class="CSS language">CSS</span>
+                            <span class="file">style.css</span>
+                            <span class="copy"><i class="fa fa-copy"></i> Copier le code </span>
                         </div>
-                        <div class="code">
-                            <div class="informations">
-                                <span class="CSS language">CSS</span>
-                                <span class="file">style.css</span>
-                                <span class="copy"><i class="fa fa-copy"></i> Copier le code </span>
-                            </div>
-                            <pre>
+                        <pre>
                             <code class="language-css">                             
 /*---GLOBAL---*/
 .grid-2 {
@@ -643,21 +635,21 @@
 
                             </code>
                         </pre>
+                    </div>
+                    <h3>Navigation</h3>
+                    <p>
+                        Nous allons commencer par styliser la navigation. Nous allons utiliser la propriété
+                        display:flex pour afficher les boutons de navigation sur une ligne.
+                        <br>
+                        <br>
+                        Ajoutez le code suivant dans votre fichier CSS.
+                    <div class="code">
+                        <div class="informations">
+                            <span class="CSS language">CSS</span>
+                            <span class="file">style.css</span>
+                            <span class="copy"><i class="fa fa-copy"></i> Copier le code </span>
                         </div>
-                        <h3>Navigation</h3>
-                        <p>
-                            Nous allons commencer par styliser la navigation. Nous allons utiliser la propriété
-                            display:flex pour afficher les boutons de navigation sur une ligne.
-                            <br>
-                            <br>
-                            Ajoutez le code suivant dans votre fichier CSS.
-                            <div class="code">
-                                <div class="informations">
-                                    <span class="CSS language">CSS</span>
-                                    <span class="file">style.css</span>
-                                    <span class="copy"><i class="fa fa-copy"></i> Copier le code </span>
-                                </div>
-                                <pre>
+                        <pre>
                             <code class="language-css">
 /*---NAVIGATION---*/                                
 header{
@@ -690,23 +682,77 @@ button.active,button:hover{
 }
                             </code>
                         </pre>
-                            </div>
+                    </div>
 
-                            <h3>Sections</h3>
-                            <p>
-                                Nous allons maintenant styliser les sections. Nous allons utiliser la propriété
-                                display:grid pour afficher les vignettes sur une ligne. Nous allons également utiliser
-                                la propriété grid-template-columns pour définir la largeur de chaque vignette.
-                                <br>
-                                <br>
-                                Ajoutez le code suivant dans votre fichier CSS.
-                                <div class="code">
-                                    <div class="informations">
-                                        <span class="CSS language">CSS</span>
-                                        <span class="file">style.css</span>
-                                        <span class="copy"><i class="fa fa-copy"></i> Copier le code </span>
-                                    </div>
-                                    <pre>
+
+                    <h3>Resultats</h3>
+                    <p>
+                        Afin de rendre le résultat final de l'avatar plus attrayant, nous allons ajouter une ombre et un
+                        fond blanc. Nous allons également utiliser la propriété object-fit:cover pour afficher l'image
+                        de
+                        l'avatar en plein écran.
+                        <br>
+                        Ajoutez le code suivant dans votre fichier CSS.
+                    </p>
+
+                    <div class="code">
+                        <div class="informations">
+                            <span class="CSS language">CSS</span>
+                            <span class="file">style.css</span>
+                            <span class="copy"><i class="fa fa-copy"></i> Copier le code </span>
+                        </div>
+                        <pre>
+                            <code class="language-css">
+                    /*---RESULT---*/
+.result {
+    overflow: hidden;
+    max-width: 100%;
+    position: relative;
+    background-color: white;
+    border-radius: 1rem;
+    margin: 1rem 2rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    min-height: 80vh;
+    min-width: 80vh;
+}
+
+.result:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+
+.result img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    height: auto;
+}
+#resultFinal{
+    display: none;
+}
+
+</code>
+                        </pre>
+                    </div>
+                    <h3>Sections</h3>
+                    <p>
+                        Nous allons maintenant styliser les sections. Nous allons utiliser la propriété
+                        display:grid pour afficher les vignettes sur une ligne. Nous allons également utiliser
+                        la propriété grid-template-columns pour définir la largeur de chaque vignette.
+                        <br>
+                        <br>
+                        Ajoutez le code suivant dans votre fichier CSS.
+                    <div class="code">
+                        <div class="informations">
+                            <span class="CSS language">CSS</span>
+                            <span class="file">style.css</span>
+                            <span class="copy"><i class="fa fa-copy"></i> Copier le code </span>
+                        </div>
+                        <pre>
                             <code class="language-css">
 /*---SECTIONS---*/                           
 main section{
@@ -716,6 +762,7 @@ main section.active{
     padding: 16px 0px;
     display: block;
 }
+
 /*---VIGNETTES---*/
 .vignettes{
     overflow-y: auto;
@@ -754,22 +801,22 @@ main section.active{
 
                             </code>
                         </pre>
-                                </div>
-                                <p>
-                                    Occupons nous desormais des sections de couleurs. Nous allons utiliser la propriété
-                                    display:grid pour afficher les couleurs sur une ligne. Nous allons également
-                                    utiliser la propriété grid-template-columns pour définir la largeur de chaque
-                                    couleur.
-                                    <br>
-                                    <br>
-                                    Ajoutez le code suivant dans votre fichier CSS.
-                                    <div class="code">
-                                        <div class="informations">
-                                            <span class="CSS language">CSS</span>
-                                            <span class="file">style.css</span>
-                                            <span class="copy"><i class="fa fa-copy"></i> Copier le code </span>
-                                        </div>
-                                        <pre>
+                    </div>
+                    <p>
+                        Occupons nous desormais des sections de couleurs. Nous allons utiliser la propriété
+                        display:grid pour afficher les couleurs sur une ligne. Nous allons également
+                        utiliser la propriété grid-template-columns pour définir la largeur de chaque
+                        couleur.
+                        <br>
+                        <br>
+                        Ajoutez le code suivant dans votre fichier CSS.
+                    <div class="code">
+                        <div class="informations">
+                            <span class="CSS language">CSS</span>
+                            <span class="file">style.css</span>
+                            <span class="copy"><i class="fa fa-copy"></i> Copier le code </span>
+                        </div>
+                        <pre>
                             <code class="language-css">
 /*---COULEURS---*/
 .colors{
@@ -797,28 +844,28 @@ main section.active{
 }
 </code>
 </pre>
-                                    </div>
-                                    <hr>
-                                    <h2>JavaScript</h2>
-                                    <h3>
-                                        Changer de categories
-                                    </h3>
-                                    <p>
-                                        Nous allons maintenant ajouter le code JavaScript pour changer de catégorie
-                                        lorsque l'utilisateur clique sur un bouton de navigation. Nous allons utiliser
-                                        la méthode addEventListener pour détecter le clic sur un bouton de navigation.
-                                        Nous allons également utiliser la méthode querySelectorAll pour sélectionner
-                                        tous les boutons de navigation.
-                                        <br>
-                                        <br>
-                                        Ajoutez le code suivant dans votre fichier JavaScript.
-                                        <div class="code">
-                                            <div class="informations">
-                                                <span class="JS language">JS</span>
-                                                <span class="file">global.js</span>
-                                                <span class="copy"><i class="fa fa-copy"></i> Copier le code </span>
-                                            </div>
-                                            <pre>
+                    </div>
+                    <hr>
+                    <h2>JavaScript</h2>
+                    <h3>
+                        Changer de categories
+                    </h3>
+                    <p>
+                        Nous allons maintenant ajouter le code JavaScript pour changer de catégorie
+                        lorsque l'utilisateur clique sur un bouton de navigation. Nous allons utiliser
+                        la méthode addEventListener pour détecter le clic sur un bouton de navigation.
+                        Nous allons également utiliser la méthode querySelectorAll pour sélectionner
+                        tous les boutons de navigation.
+                        <br>
+                        <br>
+                        Ajoutez le code suivant dans votre fichier JavaScript.
+                    <div class="code">
+                        <div class="informations">
+                            <span class="JS language">JS</span>
+                            <span class="file">global.js</span>
+                            <span class="copy"><i class="fa fa-copy"></i> Copier le code </span>
+                        </div>
+                        <pre>
                                                 <code class="language-js">
 const navigationButtons = document.querySelectorAll('#categories button');
 const sections = document.querySelectorAll('main section');
@@ -845,18 +892,18 @@ function switchSection() {
 switchSection();
 </code>
 </pre>
-                                        </div>
+                    </div>
 
-                                        <hr>
-                                        <h3>Réecrire l'URL du résultat</h3>
+                    <hr>
+                    <h3>Réecrire l'URL du résultat</h3>
 
-                                        <div class="code">
-                                            <div class="informations">
-                                                <span class="JS language">JS</span>
-                                                <span class="file">global.js</span>
-                                                <span class="copy"><i class="fa fa-copy"></i> Copier le code </span>
-                                            </div>
-                                            <pre>
+                    <div class="code">
+                        <div class="informations">
+                            <span class="JS language">JS</span>
+                            <span class="file">global.js</span>
+                            <span class="copy"><i class="fa fa-copy"></i> Copier le code </span>
+                        </div>
+                        <pre>
                                                 <code class="language-js">
 let currentGender = "men";
 let sectionsWithGender = ['Top'];
@@ -890,31 +937,31 @@ function changeResultURL(sectionName){
 }
 </code>
 </pre>
-                                        </div>
-                                        <p>La fonction changeResultURL permet de changer l'image du résultat final en
-                                            fonction de la section sélectionnée. Elle prend en paramètre le nom de la
-                                            section et utilise la méthode querySelector pour sélectionner la vignette
-                                            active. Elle utilise ensuite la méthode getAttribute pour récupérer
-                                            l'attribut data-element de la vignette active. Elle utilise également la
-                                            méthode setAttribute pour changer l'attribut src de l'image du résultat
-                                            final.</p>
+                    </div>
+                    <p>La fonction changeResultURL permet de changer l'image du résultat final en
+                        fonction de la section sélectionnée. Elle prend en paramètre le nom de la
+                        section et utilise la méthode querySelector pour sélectionner la vignette
+                        active. Elle utilise ensuite la méthode getAttribute pour récupérer
+                        l'attribut data-element de la vignette active. Elle utilise également la
+                        méthode setAttribute pour changer l'attribut src de l'image du résultat
+                        final.</p>
 
-                                        <p>
-                                            Nous allons maintenant ajouter le code JavaScript pour changer l'image du
-                                            résultat final lorsque l'utilisateur sélectionne une option. Nous allons
-                                            utiliser la méthode addEventListener pour détecter le clic sur une vignette.
-                                            Nous allons également utiliser la méthode querySelectorAll pour sélectionner
-                                            toutes les vignettes.
-                                        </p>
-                                        <p>
-                                            Ajoutez le code suivant dans votre fichier JavaScript.
-                                            <div class="code">
-                                                <div class="informations">
-                                                    <span class="JS language">JS</span>
-                                                    <span class="file">global.js</span>
-                                                    <span class="copy"><i class="fa fa-copy"></i> Copier le code </span>
-                                                </div>
-                                                <pre>
+                    <p>
+                        Nous allons maintenant ajouter le code JavaScript pour changer l'image du
+                        résultat final lorsque l'utilisateur sélectionne une option. Nous allons
+                        utiliser la méthode addEventListener pour détecter le clic sur une vignette.
+                        Nous allons également utiliser la méthode querySelectorAll pour sélectionner
+                        toutes les vignettes.
+                    </p>
+                    <p>
+                        Ajoutez le code suivant dans votre fichier JavaScript.
+                    <div class="code">
+                        <div class="informations">
+                            <span class="JS language">JS</span>
+                            <span class="file">global.js</span>
+                            <span class="copy"><i class="fa fa-copy"></i> Copier le code </span>
+                        </div>
+                        <pre>
                                                 <code class="language-js">
 function changeShape() {
     //Pour chacune des sections, on récupère les vignettes et le nom de la section
@@ -937,21 +984,21 @@ function changeShape() {
 changeShape();
 </code>
 </pre>
-                                            </div>
-                                            <p>
-                                                Nous allons également ajouter le code JavaScript pour changer la couleur
-                                                de l'avatar lorsque l'utilisateur sélectionne une couleur. Nous allons
-                                                utiliser la méthode addEventListener pour détecter le clic sur une
-                                                couleur. Nous allons également utiliser la méthode querySelectorAll pour
-                                                sélectionner toutes les couleurs.
-                                            </p>
-                                            <div class="code">
-                                                <div class="informations">
-                                                    <span class="JS language">JS</span>
-                                                    <span class="file">global.js</span>
-                                                    <span class="copy"><i class="fa fa-copy"></i> Copier le code </span>
-                                                </div>
-                                                <pre>
+                    </div>
+                    <p>
+                        Nous allons également ajouter le code JavaScript pour changer la couleur
+                        de l'avatar lorsque l'utilisateur sélectionne une couleur. Nous allons
+                        utiliser la méthode addEventListener pour détecter le clic sur une
+                        couleur. Nous allons également utiliser la méthode querySelectorAll pour
+                        sélectionner toutes les couleurs.
+                    </p>
+                    <div class="code">
+                        <div class="informations">
+                            <span class="JS language">JS</span>
+                            <span class="file">global.js</span>
+                            <span class="copy"><i class="fa fa-copy"></i> Copier le code </span>
+                        </div>
+                        <pre>
                                                 <code class="language-js">
 function changeColor() {
     for (const section of sections) {
@@ -973,7 +1020,7 @@ function changeColor() {
 changeColor();
 </code>
 </pre>
-                                            </div>
+                    </div>
 
 
 

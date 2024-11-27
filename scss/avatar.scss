@@ -237,8 +237,6 @@ a.start {
 				}
 			}
 		}
-
-		.nav-pills,
 		.vignettes-section,
 		.vignettes-section-color {
 			filter: grayscale(1) blur(10px);
@@ -1160,47 +1158,25 @@ div#Vignettes-Background div.vignette img {
 /*--------------------------------------------*/
 .nav-pills {
 	padding: 0px;
-	justify-content: space-around;
 	flex-wrap: wrap;
 	display: flex;
+	gap: 1rem;
 
 	li {
 		display: flex;
-		background: transparent;
-		border: rgb(0, 0, 0) dashed 2px;
-		border-radius: 16px;
-		margin: 5px;
-		box-shadow: -1px 2px 10px 3px rgba(0, 0, 0, .3) inset;
-
-		img {
-			width: 40px;
-			height: 40px;
-			opacity: 0.5;
-		}
 
 		a {
-			font-weight: bold;
-			text-transform: uppercase;
-			display: flex;
-			align-items: center;
-			color: rgb(0, 0, 0);
-			padding: 15px;
+			color: white;
+			padding: 1rem 2rem;
 			position: relative;
-
+		background: $color-black;
+		border-radius: 16px;
+		transition:all ease-in-out 0.5s;
+		
 			&:hover {
 				text-decoration: none;
-			}
-		}
-
-		&:hover {
-			border: dashed black 2px;
-
-			a {
-				color: black;
-			}
-
-			img {
-				opacity: 1;
+				background: $color-primary;
+				color:$color-black;
 			}
 		}
 	}

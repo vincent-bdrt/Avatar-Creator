@@ -171,23 +171,14 @@ require_once 'functions.php';
                     Une documentation sera bientôt fournie pour permettre à tous de pouvoir créer son propre jeu.
                 </p>
                 <ul class="nav nav-pills info-pills">
-
-                    <li>
-                        <a href="https://www.instagram.com/pinknose.me/" target="_blank"
-                            title="lien vers instagram"><img src="images/UI/Icon/icon_instagram.svg"
-                                alt="Icon instagram"> Compte
-                            Instagram
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://vincent-bod.art" target="_blank" title="lien mon site perso"><img
-                                src="images/UI/Icon/icon_home.svg" alt="lien mon site perso"> Site personnel
-
-                        </a>
-                    </li>
                     <li>
                         <a href="https://github.com/vincent-bdrt/Avatar-Creator" target="_blank" title="Dev du projet">
-                            <img loading="lazy" src="images/UI/Icon/icon_github.svg" alt="Dev du projet">Github
+                            Github
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/documentation" target="_blank" title="Dev du projet">
+                            Documentation
                         </a>
                     </li>
                     <li>
